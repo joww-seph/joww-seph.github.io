@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAT-chow - Marc Joseph B. Sacopaso</title>
+  <meta name="description" content="CAT-chow - A 2D pixelated side-scrolling platformer built entirely in Java. Play as Chao-chao, a lost cat, battling through 7 stages with enemy AI, power-ups, and a save/load system." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">MJBS<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html"    class="nav-link">Home</a></li>
+        <li><a href="../about.html"    class="nav-link">About</a></li>
+        <li><a href="../projects.html"     class="nav-link active">Projects</a></li>
+        <li><a href="../achievements.html" class="nav-link">Achievements</a></li>
+        <li><a href="../leadership.html"   class="nav-link">Leadership</a></li>
+        <li><a href="../contact.html"      class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+        </button>
+        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile-drawer" role="menu">
+      <a href="../index.html"    class="nav-link" role="menuitem">Home</a>
+      <a href="../about.html"    class="nav-link" role="menuitem">About</a>
+      <a href="../projects.html"     class="nav-link active" role="menuitem">Projects</a>
+      <a href="../achievements.html" class="nav-link" role="menuitem">Achievements</a>
+      <a href="../leadership.html"   class="nav-link" role="menuitem">Leadership</a>
+      <a href="../contact.html"      class="nav-link" role="menuitem">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══ PROJECT HERO ══════════════════════════════════════ -->
+  <div class="project-detail-hero">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb fade-in">
+        <span><a href="../projects.html">Projects</a></span>
+        <span>CAT-chow</span>
+      </div>
+
+      <!-- Title -->
+      <h1 style="margin-bottom:var(--space-4)" class="fade-in fade-in-delay-1">CAT-chow</h1>
+
+      <!-- Short description -->
+      <p style="font-size:var(--text-xl);color:var(--color-text-secondary);max-width:700px" class="fade-in fade-in-delay-2">
+        A 2D pixelated side-scrolling platformer built entirely in Java where you play as Chao-chao, a cat battling through 7 stages of enemies, obstacles, and boss encounters. The game is complete with power-ups, enemy AI, and a save/load system.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="project-links fade-in fade-in-delay-3" style="margin-top:var(--space-6);padding-top:0;border-top:none">
+        <a href="https://github.com/joww-seph/catchow" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ PROJECT CONTENT ════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-12);align-items:start">
+
+        <!-- ── Main Content ── -->
+        <div>
+
+          <!-- Project Preview Image -->
+          <div class="project-detail-image-placeholder fade-in">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            CAT-chow gameplay screenshot
+          </div>
+
+          <div class="project-content">
+
+            <!-- Overview -->
+            <h2>Overview</h2>
+            <p>
+              CAT-chow is a 2D pixelated side-scrolling platformer developed entirely in Java using Java Swing and AWT. You play as Chao-chao, a lost cat abandoned by its owner when their house was demolished. As Chao-chao, you pass through 7 stages, each with its own tile map, music, enemy layout, and collectibles. Every system used within the game was built from scratch using only the Java standard library - the tile renderer, collision detection, entity AI, camera, input handler, sound engine, and save/load.
+            </p>
+
+            <!-- Key Features -->
+            <h2>Key Features</h2>
+            <ul>
+              <li><strong>7 unique stages</strong> with individual maps and music tracks</li>
+              <li><strong>4 power-ups</strong> - speed boost, double jump, air slash, and invisibility</li>
+              <li><strong>4 enemy types</strong> with distinct AI behaviors and stats</li>
+              <li><strong>Stage 5 airplane mode</strong> - full mechanic swap with auto-scrolling and new controls</li>
+              <li><strong>Cutscenes</strong> between stage transitions and a full ending sequence</li>
+              <li><strong>Save/load system</strong> to persist player progression</li>
+              <li>60 FPS game loop with game state machine</li>
+            </ul>
+
+            <!-- Stages -->
+            <h2>Stages</h2>
+            <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+
+              <div style="border-left:3px solid var(--color-accent);padding-left:var(--space-4)">
+                <div style="font-weight:600;margin-bottom:var(--space-1)">Stage 1 - Subdivision</div>
+                <p style="margin:0;font-size:var(--text-sm);color:var(--color-text-secondary)">No enemies. Introduces movement, power-ups, and the exit mechanic.</p>
+              </div>
+
+              <div style="border-left:3px solid var(--color-accent);padding-left:var(--space-4)">
+                <div style="font-weight:600;margin-bottom:var(--space-1)">Stage 2 - Rooftops</div>
+                <p style="margin:0;font-size:var(--text-sm);color:var(--color-text-secondary)">Introduces Milky and Garfield with patrol and pursuit AI. All four power-up types appear for the first time.</p>
+              </div>
+
+              <div style="border-left:3px solid var(--color-accent);padding-left:var(--space-4)">
+                <div style="font-weight:600;margin-bottom:var(--space-1)">Stage 3 - Bridge</div>
+                <p style="margin:0;font-size:var(--text-sm);color:var(--color-text-secondary)">Introduces the Hawk, a fast aerial enemy that tracks the player's vertical and horizontal position.</p>
+              </div>
+
+              <div style="border-left:3px solid var(--color-accent);padding-left:var(--space-4)">
+                <div style="font-weight:600;margin-bottom:var(--space-1)">Stage 4 - City</div>
+                <p style="margin:0;font-size:var(--text-sm);color:var(--color-text-secondary)">Vehicles - buses, trucks, vans, and cars - fill the world as platforms and obstacles, alongside the heaviest enemy density in the game.</p>
+              </div>
+
+              <div style="border-left:3px solid var(--color-accent);padding-left:var(--space-4)">
+                <div style="font-weight:600;margin-bottom:var(--space-1)">Stage 5 - Air</div>
+                <p style="margin:0;font-size:var(--text-sm);color:var(--color-text-secondary)">The player transforms into an airplane. The screen auto-scrolls left and controls switch to <kbd>W</kbd> / <kbd>S</kbd> only. Hawks swarm throughout.</p>
+              </div>
+
+              <div style="border-left:3px solid var(--color-accent);padding-left:var(--space-4)">
+                <div style="font-weight:600;margin-bottom:var(--space-1)">Stage 6 - Power-Up Gauntlet</div>
+                <p style="margin:0;font-size:var(--text-sm);color:var(--color-text-secondary)">Dense power-up placement offsets the highest total enemy count of any stage.</p>
+              </div>
+
+              <div style="border-left:3px solid var(--color-accent);padding-left:var(--space-4)">
+                <div style="font-weight:600;margin-bottom:var(--space-1)">Stage 7 - Apartment</div>
+                <p style="margin:0;font-size:var(--text-sm);color:var(--color-text-secondary)">Introduces the Human - the most dangerous enemy with the highest attack damage. Set in an indoor environment filled with furniture obstacles. Completing this stage rolls the ending cutscene.</p>
+              </div>
+
+            </div>
+
+            <!-- Enemies -->
+            <h2>Enemies</h2>
+            <ul>
+              <li><strong>Milky</strong> - Fast, fragile patrol enemy (1 HP). Reverses on hit.</li>
+              <li><strong>Garfield</strong> - Tankier pursuer (3 HP, 2 ATK). Chases within range.</li>
+              <li><strong>Hawk</strong> - Aerial tracker (99 HP, speed 12). Adjusts to the player's position every 120 frames. Main threat in Stage 5.</li>
+              <li><strong>Human</strong> - Slow but hits hard (99 HP, 3 ATK). Stage 7 exclusive.</li>
+            </ul>
+
+            <!-- What I Learned -->
+            <h2>What I Learned</h2>
+            <p>
+              CAT-chow was my first complete game built without any engine. Every system had to be written by hand, which forced me to understand game development at a low level - from maintaining a stable 60 FPS game loop to implementing tile-based collision detection and managing game state across different screens.
+            </p>
+            <p>
+              The most creative challenge was Stage 5's airplane mode - swapping the player's sprite, physics, collision box, and input scheme mid-game without breaking the existing loop. It taught me to keep state and rendering cleanly separated. Looking back, the biggest constraint was Java Swing itself, a UI toolkit, not a game framework. Thus, I plan to rebuild this in a proper engine like Godot as the next step.
+            </p>
+
+            <!-- Links at the bottom -->
+            <div class="project-links">
+              <a href="https://github.com/joww-seph/catchow" class="btn btn-primary" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                View on GitHub
+              </a>
+              <a href="../projects.html" class="btn btn-ghost">
+                ← Back to All Projects
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Sidebar: Project Metadata ── -->
+        <div style="position:sticky;top:calc(var(--nav-height) + var(--space-8))" class="fade-in fade-in-delay-2">
+
+          <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);margin-bottom:var(--space-6)">
+            <h4 style="margin-bottom:var(--space-5)">Project Info</h4>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Type</div>
+              <div class="project-meta-value">2D Platformer Game</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Status</div>
+              <div class="project-meta-value" style="color:var(--color-success)">&#10003; Completed</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Role</div>
+              <div class="project-meta-value">Solo Developer</div>
+            </div>
+
+            <div class="project-meta-item">
+              <div class="project-meta-label">Language</div>
+              <div class="project-meta-value" style="margin-top:var(--space-2)">Java 17, Swing, AWT</div>
+            </div>
+          </div>
+
+          <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6)">
+            <h4 style="margin-bottom:var(--space-4)">Links</h4>
+            <a href="https://github.com/joww-seph/catchow" class="btn btn-primary" style="width:100%;text-align:center;display:block" target="_blank" rel="noopener">View on GitHub &#8594;</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DOCUMENTATION ══════════════════════════════════════ -->
+  <section class="section" id="doc-gallery" data-doc-project="cat-chow" style="padding-top:0;display:none">
+    <div class="container">
+      <h2 style="margin-bottom:var(--space-6)">Documentation</h2>
+      <div id="doc-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4)"></div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
+  <footer class="r-footer">
+    <div class="container">
+      <div class="r-footer-inner">
+        <span class="r-footer-copy">&copy; <span id="footer-year"></span> Marc Joseph B. Sacopaso</span>
+        <div class="r-footer-links">
+          <a href="../projects.html" class="r-link">&#8592; All Projects</a>
+          <span class="r-link-sep">&#183;</span>
+          <a href="mailto:markjosephsacopaso@gmail.com" class="r-link">Email</a>
+          <span class="r-link-sep">&#183;</span>
+          <a href="https://github.com/joww-seph" class="r-link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../assets/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

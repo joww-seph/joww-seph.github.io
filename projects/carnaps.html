@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>carNaps — Marc Joseph B. Sacopaso</title>
+  <meta name="description" content="A sensor-based search and rescue robotic system using ultrasonic and infrared detection. Autonomous navigation with robotic claw manipulation." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">MJBS<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html"    class="nav-link">Home</a></li>
+        <li><a href="../about.html"    class="nav-link">About</a></li>
+        <li><a href="../projects.html"     class="nav-link active">Projects</a></li>
+        <li><a href="../achievements.html" class="nav-link">Achievements</a></li>
+        <li><a href="../leadership.html"   class="nav-link">Leadership</a></li>
+        <li><a href="../contact.html"      class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+        </button>
+        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile-drawer" role="menu">
+      <a href="../index.html"    class="nav-link" role="menuitem">Home</a>
+      <a href="../about.html"    class="nav-link" role="menuitem">About</a>
+      <a href="../projects.html"     class="nav-link active" role="menuitem">Projects</a>
+      <a href="../achievements.html" class="nav-link" role="menuitem">Achievements</a>
+      <a href="../leadership.html"   class="nav-link" role="menuitem">Leadership</a>
+      <a href="../contact.html"      class="nav-link" role="menuitem">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══ PROJECT HERO ══════════════════════════════════════ -->
+  <div class="project-detail-hero">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb fade-in">
+        <span><a href="../projects.html">Projects</a></span>
+        <span>carNaps</span>
+      </div>
+
+      <!-- Title -->
+      <h1 style="margin-bottom:var(--space-2)" class="fade-in fade-in-delay-1">carNaps</h1>
+      <p style="font-size:var(--text-lg);color:var(--color-text-tertiary);margin-bottom:var(--space-4);font-style:italic" class="fade-in fade-in-delay-1">A sensor-based search and rescue robotic system</p>
+
+      <!-- Short description -->
+      <p style="font-size:var(--text-xl);color:var(--color-text-secondary);max-width:700px" class="fade-in fade-in-delay-2">
+        An autonomous robotic system designed to detect obstacles and collect objects using multiple sensors and a motorized claw mechanism — built for search and rescue, autonomous delivery, and object collection applications.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="project-links fade-in fade-in-delay-3" style="margin-top:var(--space-6);padding-top:0;border-top:none">
+        <a href="../assets/docs/carNaps.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+          Project PDF
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ PROJECT CONTENT ════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-12);align-items:start">
+
+        <!-- ── Main Content ── -->
+        <div>
+
+          <!-- Project Preview Image -->
+          <div class="project-detail-image-placeholder fade-in">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            carNaps robot — front view
+          </div>
+
+          <div class="project-content">
+
+            <!-- Overview -->
+            <h2>Overview</h2>
+            <p>
+              carNaps is an autonomous robotic system designed to detect obstacles and collect objects using multiple sensors and a motorized claw mechanism. The robot utilizes three ultrasonic sensors to measure distance and identify obstacles in its surroundings, while infrared sensors assist in identifying diagonal proximity and object detection.
+            </p>
+            <p>
+              Built around an Arduino R3 UNO and driven by an L298 motor driver, carNaps combines sensor fusion, autonomous navigation, and motorized manipulation into a single cohesive platform suitable for real-world search and rescue scenarios.
+            </p>
+
+            <!-- Hardware Components -->
+            <h2>Hardware Components</h2>
+            <table style="width:100%;border-collapse:collapse;margin-bottom:var(--space-6)">
+              <thead>
+                <tr style="border-bottom:2px solid var(--color-border)">
+                  <th style="padding:var(--space-2) var(--space-3);text-align:left;font-weight:600">Qty</th>
+                  <th style="padding:var(--space-2) var(--space-3);text-align:left;font-weight:600">Component</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2) var(--space-3);color:var(--color-text-secondary)">1×</td>
+                  <td style="padding:var(--space-2) var(--space-3)">Arduino R3 UNO</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2) var(--space-3);color:var(--color-text-secondary)">1×</td>
+                  <td style="padding:var(--space-2) var(--space-3)">L298 Motor Driver</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2) var(--space-3);color:var(--color-text-secondary)">3×</td>
+                  <td style="padding:var(--space-2) var(--space-3)">Ultrasonic Sensors</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2) var(--space-3);color:var(--color-text-secondary)">3×</td>
+                  <td style="padding:var(--space-2) var(--space-3)">IR Proximity Sensors</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2) var(--space-3);color:var(--color-text-secondary)">4×</td>
+                  <td style="padding:var(--space-2) var(--space-3)">DC Motors</td>
+                </tr>
+                <tr>
+                  <td style="padding:var(--space-2) var(--space-3);color:var(--color-text-secondary)">3×</td>
+                  <td style="padding:var(--space-2) var(--space-3)">Servo Motors</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Key Features -->
+            <h2>Key Features</h2>
+            <ul>
+              <li><strong>Multi-sensor obstacle detection</strong> — 3 ultrasonic sensors cover front and side distances; IR sensors handle diagonal proximity</li>
+              <li><strong>Autonomous navigation</strong> — real-time pathfinding that reacts to the environment without human input</li>
+              <li><strong>Robotic claw manipulation</strong> — motorized claw driven by servo motors for object grasping and collection</li>
+              <li><strong>Efficient motor control</strong> — L298 driver manages 4 DC motors for independent wheel drive</li>
+              <li><strong>Integrated sensor processing</strong> — all sensor inputs fused and processed on-board by the Arduino</li>
+            </ul>
+
+            <!-- Applications -->
+            <h2>Applications</h2>
+            <ul>
+              <li>Search and rescue operations</li>
+              <li>Autonomous delivery</li>
+              <li>Warehouse object collection</li>
+              <li>Robotics education and research</li>
+            </ul>
+
+            <!-- What I Learned -->
+            <h2>What I Learned</h2>
+            <p>
+              Building carNaps taught me how to coordinate multiple sensor streams simultaneously — ultrasonic distance readings, IR proximity signals, and servo feedback — all processed in real time on a single microcontroller. The biggest challenge was preventing sensor interference and writing an obstacle-avoidance algorithm that stayed stable across varying environments.
+            </p>
+            <p>
+              Adding the robotic claw pushed me into servo motor timing and mechanical control, areas I hadn't explored before. It also highlighted the importance of power management: running four DC motors, three servos, and six sensors off a shared supply required careful load balancing to avoid voltage drops that caused erratic behavior.
+            </p>
+
+            <!-- Links at the bottom -->
+            <div class="project-links">
+              <a href="../assets/docs/carNaps.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16" style="margin-right:4px">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                </svg>
+                Project PDF
+              </a>
+              <a href="../projects.html" class="btn btn-ghost">
+                ← Back to All Projects
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Sidebar: Project Metadata ── -->
+        <div style="position:sticky;top:calc(var(--nav-height) + var(--space-8))" class="fade-in fade-in-delay-2">
+
+
+          <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);margin-bottom:var(--space-6)">
+            <h4 style="margin-bottom:var(--space-5)">Project Info</h4>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Type</div>
+              <div class="project-meta-value">Robotics</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Status</div>
+              <div class="project-meta-value" style="color:var(--color-success)">✓ Completed</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Role</div>
+              <div class="project-meta-value">Robotics Engineer</div>
+            </div>
+
+            <div class="project-meta-item">
+              <div class="project-meta-label">Technologies</div>
+              <div class="project-meta-value" style="margin-top:var(--space-2)">Arduino, C++, Sensors</div>
+            </div>
+          </div>
+
+          <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6)">
+            <h4 style="margin-bottom:var(--space-4)">Links</h4>
+            <a href="../assets/docs/carNaps.pdf" class="btn btn-primary" style="width:100%" target="_blank" rel="noopener">Download PDF</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DOCUMENTATION ══════════════════════════════════════ -->
+  <section class="section" id="doc-gallery" data-doc-project="carnaps" style="padding-top:0;display:none">
+    <div class="container">
+      <h2 style="margin-bottom:var(--space-6)">Documentation</h2>
+      <div id="doc-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4)"></div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
+  <footer class="r-footer">
+    <div class="container">
+      <div class="r-footer-inner">
+        <span class="r-footer-copy">&copy; <span id="footer-year"></span> Marc Joseph B. Sacopaso</span>
+        <div class="r-footer-links">
+          <a href="../projects.html" class="r-link">&#8592; All Projects</a>
+          <span class="r-link-sep">&#183;</span>
+          <a href="mailto:markjosephsacopaso@gmail.com" class="r-link">Email</a>
+          <span class="r-link-sep">&#183;</span>
+          <a href="https://github.com/joww-seph" class="r-link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../assets/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

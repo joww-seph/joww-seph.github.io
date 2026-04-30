@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- EDIT: Change "Your Name" -->
+  <title>About — Marc Joseph B. Sacopaso</title>
+  <meta name="description" content="Learn more about Marc Joseph B. Sacopaso — background, skills, and experience." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION (same on every page)
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">MJBS<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"        class="nav-link">Home</a></li>
+        <li><a href="about.html"        class="nav-link active">About</a></li>
+        <li><a href="projects.html"     class="nav-link">Projects</a></li>
+        <li><a href="achievements.html" class="nav-link">Achievements</a></li>
+        <li><a href="leadership.html"   class="nav-link">Leadership</a></li>
+        <li><a href="contact.html"      class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+        </button>
+        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile-drawer" role="menu">
+      <a href="index.html"        class="nav-link" role="menuitem">Home</a>
+      <a href="about.html"        class="nav-link active" role="menuitem">About</a>
+      <a href="projects.html"     class="nav-link" role="menuitem">Projects</a>
+      <a href="achievements.html" class="nav-link" role="menuitem">Achievements</a>
+      <a href="leadership.html"   class="nav-link" role="menuitem">Leadership</a>
+      <a href="contact.html"      class="nav-link" role="menuitem">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE HEADER
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <div class="page-header-inner fade-in">
+        <span class="section-label">About Me</span>
+        <!-- EDIT: Replace "Your Name" -->
+        <h1 class="page-title">Hi, I'm Marc Joseph B. Sacopaso</h1>
+        <!-- EDIT: Replace with your tagline -->
+        <p class="page-subtitle">BSIT Student.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT CONTENT
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- ── LEFT: Photo + Quick Info ── -->
+        <div class="about-photo-wrapper fade-in">
+
+          <!-- Profile Photo
+               HOW TO ADD YOUR PHOTO:
+               1. Put your photo in assets/images/ (e.g. profile.jpg)
+               2. Change the src below to "assets/images/profile.jpg"
+               3. Remove the placeholder div below it -->
+          <img class="about-photo" src="assets/images/profile.png" alt="Marc Joseph B. Sacopaso" />
+
+          <!-- Quick Info Card -->
+          <div class="about-info-card">
+            <div class="about-info-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <!-- EDIT: Your location -->
+              <span>Ilocos Norte, Philippines</span>
+            </div>
+            <div class="about-info-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <!-- EDIT: Your email -->
+              <a href="mailto:markjosephsacopaso@gmail.com" style="color:var(--color-accent)">markjosephsacopaso@gmail.com</a>
+            </div>
+            <div class="about-info-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <!-- EDIT: Your job status -->
+              <span>Open to opportunities</span>
+            </div>
+            <div class="about-info-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              <!-- EDIT: Your degree or current education -->
+              <span>BS Information Technology</span>
+            </div>
+          </div>
+
+          <!-- Download CV Button -->
+          <!-- Uncomment this when you have a resume file ready -->
+          <!--
+          <a href="assets/resume.pdf" class="btn btn-outline" style="width:100%;margin-top:var(--space-4)" download>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            Download Resume
+          </a>
+          -->
+
+        </div>
+
+        <!-- ── RIGHT: Bio, Skills, Timeline ── -->
+        <div>
+
+          <!-- About Text -->
+          <div class="fade-in">
+            <h2 style="margin-bottom:var(--space-4)">A Little About Me</h2>
+            <p style="margin-bottom:var(--space-4)">
+              I'm currently a BSIT student at the Mariano Marcos State University - College of Computing and Information Sciences who is intrigued by robotic and immersive systems. I'm drawn to the intersection of education, society and development as I am interested in developing innovative solutions in improving education and societal problems that need addressing.
+            </p>
+            <p style="margin-bottom:var(--space-4)">
+              I believe that great software comes from understanding people first and technology second. Whether it's a class project or a personal build, I bring the same care and attention to everything I work on.
+            </p>
+            <p>
+              I'm currently a consistent University Scholar at our university, maintaining a GWA above 1.45, and always looking for ways to grow through coursework, projects, internships, and community involvement.
+            </p>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Skills -->
+          <div class="fade-in">
+            <h3 style="margin-bottom:var(--space-6)">Skills & Technologies</h3>
+            <div class="skills-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
+              <div class="skill-category">
+                <div class="skill-category-title">Languages</div>
+                <div class="skill-list">
+                  <span class="tag tag-accent">PHP</span>
+                  <span class="tag tag-accent">JavaScript</span>
+                  <span class="tag tag-accent">C / C++</span>
+                  <span class="tag tag-accent">Java</span>
+                  <span class="tag tag-accent">Python</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <div class="skill-category-title">Frontend</div>
+                <div class="skill-list">
+                  <span class="tag tag-accent">Vue 3</span>
+                  <span class="tag tag-accent">React</span>
+                  <span class="tag tag-accent">Tailwind CSS</span>
+                  <span class="tag tag-accent">HTML5 / CSS3</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <div class="skill-category-title">Backend</div>
+                <div class="skill-list">
+                  <span class="tag tag-accent">Laravel</span>
+                  <span class="tag tag-accent">Node.js / Express</span>
+                  <span class="tag tag-accent">MySQL</span>
+                  <span class="tag tag-accent">MongoDB</span>
+                  <span class="tag tag-accent">WebSockets</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <div class="skill-category-title">AI & ML</div>
+                <div class="skill-list">
+                  <span class="tag tag-accent">Google Gemini</span>
+                  <span class="tag tag-accent">face-api.js</span>
+                  <span class="tag tag-accent">MediaPipe</span>
+                  <span class="tag tag-accent">Web Speech API</span>
+                  <span class="tag tag-accent">Edge Impulse</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <div class="skill-category-title">Embedded / IoT</div>
+                <div class="skill-list">
+                  <span class="tag tag-accent">ESP32</span>
+                  <span class="tag tag-accent">Arduino</span>
+                  <span class="tag tag-accent">UART / SPI / I²C</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <div class="skill-category-title">Tools & Other</div>
+                <div class="skill-list">
+                  <span class="tag tag-accent">Git / GitHub</span>
+                  <span class="tag tag-accent">Vite</span>
+                  <span class="tag tag-accent">Chart.js</span>
+                  <span class="tag tag-accent">Godot</span>
+                  <span class="tag tag-accent">VS Code</span>
+                  <span class="tag tag-accent">Arduino IDE</span>
+                  <span class="tag tag-accent">Laragon</span>
+                  <span class="tag tag-accent">Kali Linux</span>
+                  <span class="tag tag-accent">Windows 11</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Experience Timeline -->
+          <div class="fade-in">
+            <h3 style="margin-bottom:var(--space-6)">Experience</h3>
+            <div class="timeline">
+
+              <!-- EDIT: Add your real work experience here. Most recent first. -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">April 2023</div>
+                <div class="timeline-title">Software Developer Intern</div>
+                <div class="timeline-subtitle">MMSU - Information Technology Center · Internship</div>
+                <div class="timeline-body">
+                  Learned the basics of Github, Laravel, and MVC architecture<br>
+                  Developed web components using Laravel and Vue.js<br>
+                  Collaborated with a team of interns to design and build a system prototype<br>
+                  Created a functional wireframe of an Internship Management System<br>
+                  Assisted in structuring backend logic and frontend interaction
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Education Timeline -->
+          <div class="fade-in">
+            <h3 style="margin-bottom:var(--space-6)">Education</h3>
+            <div class="timeline">
+
+              <!-- EDIT: Add your real education here -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023 – present</div>
+                <div class="timeline-title">Bachelor of Science in Information Technology</div>
+                <div class="timeline-subtitle">Mariano Marcos University - College of Computing and Information Sciences</div>
+                <div class="timeline-body">
+                  Consistent University Scholar with a GWA higher than 1.45
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2021 – 2023</div>
+                <div class="timeline-title">Senior High School - Academic Strand (STEM)</div>
+                <div class="timeline-subtitle">Mariano Marcos University - Laboratory High School Batac Campus</div>
+                <div class="timeline-body">
+                  Graduated with honors<br>
+                  Mayor Academic Excellence Awardee<br>
+                  Vice Mayor Academic Excellence Awardee<br>
+                  Sangguniang Panlungsod Academic Excellence Awardee
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="r-footer">
+    <div class="container">
+      <div class="r-footer-inner">
+        <span class="r-footer-copy">&copy; <span id="footer-year"></span> Marc Joseph B. Sacopaso</span>
+        <div class="r-footer-links">
+          <a href="mailto:markjosephsacopaso@gmail.com" class="r-link">Email</a>
+          <span class="r-link-sep">·</span>
+          <a href="https://github.com/joww-seph" class="r-link" target="_blank" rel="noopener">GitHub</a>
+          <span class="r-link-sep">·</span>
+          <a href="https://linkedin.com/in/marc-joseph-sacopaso" class="r-link" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

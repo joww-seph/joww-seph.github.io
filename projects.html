@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- EDIT: Change "Your Name" -->
+  <title>Projects — Marc Joseph B. Sacopaso</title>
+  <meta name="description" content="Browse all projects by Marc Joseph B. Sacopaso." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">MJBS<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"        class="nav-link">Home</a></li>
+        <li><a href="about.html"        class="nav-link">About</a></li>
+        <li><a href="projects.html"     class="nav-link active">Projects</a></li>
+        <li><a href="achievements.html" class="nav-link">Achievements</a></li>
+        <li><a href="leadership.html"   class="nav-link">Leadership</a></li>
+        <li><a href="contact.html"      class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+        </button>
+        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile-drawer" role="menu">
+      <a href="index.html"        class="nav-link" role="menuitem">Home</a>
+      <a href="about.html"        class="nav-link" role="menuitem">About</a>
+      <a href="projects.html"     class="nav-link active" role="menuitem">Projects</a>
+      <a href="achievements.html" class="nav-link" role="menuitem">Achievements</a>
+      <a href="leadership.html"   class="nav-link" role="menuitem">Leadership</a>
+      <a href="contact.html"      class="nav-link" role="menuitem">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE HEADER
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <div class="page-header-inner fade-in">
+        <span class="section-label">My Work</span>
+        <h1 class="page-title">Projects</h1>
+        <p class="page-subtitle">
+          Things I've built, designed, or contributed to.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PROJECTS LISTING
+       ─────────────────────────────────────────────────────
+       HOW THIS WORKS:
+       • All projects come from projects/config.js
+       • To add a new project:
+           1. Create a new .html file in the projects/ folder
+           2. Open projects/config.js and add an entry for it
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Project Cards — injected by main.js from config.js -->
+      <div id="projects-grid" class="projects-grid">
+        <!-- Loading state while JS runs -->
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="r-footer">
+    <div class="container">
+      <div class="r-footer-inner">
+        <span class="r-footer-copy">&copy; <span id="footer-year"></span> Marc Joseph B. Sacopaso</span>
+        <div class="r-footer-links">
+          <a href="mailto:markjosephsacopaso@gmail.com" class="r-link">Email</a>
+          <span class="r-link-sep">·</span>
+          <a href="https://github.com/joww-seph" class="r-link" target="_blank" rel="noopener">GitHub</a>
+          <span class="r-link-sep">·</span>
+          <a href="https://linkedin.com/in/marc-joseph-sacopaso" class="r-link" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- IMPORTANT: config.js must be loaded BEFORE main.js -->
+  <script src="projects/config.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

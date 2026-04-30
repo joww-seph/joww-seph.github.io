@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOURTWIN: CODE — Marc Joseph B. Sacopaso</title>
+  <meta name="description" content="A comprehensive full-stack coding education platform with AI-powered digital twin technology, behavioral analytics, and ML-driven personalized learning. Built with React, Node.js, and MindSpore ML." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">MJBS<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html"    class="nav-link">Home</a></li>
+        <li><a href="../about.html"    class="nav-link">About</a></li>
+        <li><a href="../projects.html"     class="nav-link active">Projects</a></li>
+        <li><a href="../achievements.html" class="nav-link">Achievements</a></li>
+        <li><a href="../leadership.html"   class="nav-link">Leadership</a></li>
+        <li><a href="../contact.html"      class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+        </button>
+        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile-drawer" role="menu">
+      <a href="../index.html"    class="nav-link" role="menuitem">Home</a>
+      <a href="../about.html"    class="nav-link" role="menuitem">About</a>
+      <a href="../projects.html"     class="nav-link active" role="menuitem">Projects</a>
+      <a href="../achievements.html" class="nav-link" role="menuitem">Achievements</a>
+      <a href="../leadership.html"   class="nav-link" role="menuitem">Leadership</a>
+      <a href="../contact.html"      class="nav-link" role="menuitem">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══ PROJECT HERO ══════════════════════════════════════ -->
+  <div class="project-detail-hero">
+    <div class="container">
+
+      <!-- Breadcrumb (back link) -->
+      <div class="breadcrumb fade-in">
+        <span><a href="../projects.html">Projects</a></span>
+        <span>YOURTWIN: CODE</span>
+      </div>
+
+      <!-- Title -->
+      <h1 style="margin-bottom:var(--space-4)" class="fade-in fade-in-delay-1">YOURTWIN: CODE</h1>
+
+      <!-- Short description -->
+      <p style="font-size:var(--text-xl);color:var(--color-text-secondary);max-width:700px" class="fade-in fade-in-delay-2">
+        A comprehensive full-stack coding education platform leveraging AI-powered digital twin technology to provide personalized, intelligent programming instruction with advanced behavioral analytics, ML-driven learning optimization, and real-time code execution. Developed with the support of Claude Code Agentic AI.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="project-links fade-in fade-in-delay-3" style="margin-top:var(--space-6);padding-top:0;border-top:none">
+        <a href="https://yourtwin-frontend.bluebush-287550b9.koreacentral.azurecontainerapps.io/login" class="btn btn-primary" target="_blank" rel="noopener">Live Demo →</a>
+        <a href="https://github.com/joww-seph/yourtwin-code" class="btn btn-secondary" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View Code
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ PROJECT CONTENT ════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-12);align-items:start">
+
+        <!-- ── Main Content ── -->
+        <div>
+
+          <!-- Project Preview Image -->
+          <div class="project-detail-image-placeholder fade-in">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Add a screenshot here
+          </div>
+
+          <div class="project-content">
+
+            <!-- Overview section -->
+            <h2>Overview</h2>
+            <p>
+              YourTwin: CODE is a comprehensive full-stack coding education platform that leverages AI-powered digital twin technology to provide personalized, intelligent programming instruction. The platform combines real-time code execution, behavioral analytics, and machine learning to create adaptive learning experiences for computer science students.
+            </p>
+            <p>
+              Each student has an AI-powered virtual counterpart (digital twin) that learns from their coding behavior, predicts performance, and provides personalized guidance through a "Shadow Twin" AI assistant. The platform supports both student learning and instructor oversight, with advanced proctoring features, integrity monitoring, and comprehensive analytics.
+            </p>
+            <p>
+              This project demonstrates expertise in full-stack development, AI/ML integration, educational technology, and system design—all developed with support from Claude Code Agentic AI for intelligent architecture and implementation decisions.
+            </p>
+
+            <!-- Student Features section -->
+            <h2>Student Experience Features</h2>
+            <ul>
+              <li><strong>Interactive Code Editor:</strong> Monaco Editor with syntax highlighting for C, C++, Java, and Python</li>
+              <li><strong>Real-time Code Execution:</strong> Judge0 API integration for instant code testing and feedback</li>
+              <li><strong>Web-based Terminal:</strong> xterm.js-powered terminal with interactive shell capabilities</li>
+              <li><strong>Shadow Twin AI Assistant:</strong> 5-level progressive hint system based on scaffolding theory</li>
+              <li><strong>Personality-Adaptive AI:</strong> 6 different AI personalities (Mentor, Socratic, Peer, Coach, Patient Teacher, Adaptive)</li>
+              <li><strong>Digital Twin Dashboard:</strong> Behavioral analytics, competency visualization, learning velocity tracking, AI dependency analysis</li>
+              <li><strong>Progress Tracking:</strong> Activity history, time analytics, success rate visualization, personalized recommendations</li>
+            </ul>
+
+            <!-- Instructor Features section -->
+            <h2>Instructor Experience Features</h2>
+            <ul>
+              <li><strong>Lab Session Management:</strong> Multi-section support with dynamic enrollment and activity assignment</li>
+              <li><strong>Real-time Monitoring:</strong> Live student activity tracking with status indicators and activity feeds</li>
+              <li><strong>Activity Builder:</strong> Create coding activities with custom test cases and difficulty levels</li>
+              <li><strong>Advanced Proctoring:</strong> Activity monitoring, integrity scoring, transcription detection, behavioral analysis</li>
+              <li><strong>Analytics Dashboard:</strong> Performance metrics, AI usage analytics, behavioral insights, plagiarism detection</li>
+            </ul>
+
+            <!-- AI & ML Features section -->
+            <h2>AI & Machine Learning Capabilities</h2>
+            <ul>
+              <li><strong>MindSpore ML Models:</strong> LSTM success prediction, VAE anomaly detection, DQN learning path optimization, GAT knowledge graph modeling</li>
+              <li><strong>Dual AI Architecture:</strong> DeepSeek-R1 for validation, Mistral for guidance, Qwen2.5-coder for solutions, Google Gemini fallback</li>
+              <li><strong>Intelligent Code Analysis:</strong> Static analysis, behavioral validation, plagiarism detection, background processing queue</li>
+              <li><strong>Personality-Adaptive Responses:</strong> Contextual assistance based on student competency, time spent, and previous attempts</li>
+            </ul>
+
+            <!-- Technology Stack section -->
+            <h2>Technology Stack</h2>
+            <table style="width:100%;margin-bottom:var(--space-6);border-collapse:collapse;font-size:0.95em">
+              <thead>
+                <tr style="border-bottom:2px solid var(--color-border)">
+                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Category</th>
+                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Technology</th>
+                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Version/Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"><strong>Frontend</strong></td>
+                  <td style="padding:var(--space-2)">React</td>
+                  <td style="padding:var(--space-2)">19.2.0 - Modern hooks and context</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"></td>
+                  <td style="padding:var(--space-2)">Vite</td>
+                  <td style="padding:var(--space-2)">7.2.4 - Fast builds and HMR</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"></td>
+                  <td style="padding:var(--space-2)">Monaco Editor</td>
+                  <td style="padding:var(--space-2)">4.7.0 - VS Code-grade editing</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"></td>
+                  <td style="padding:var(--space-2)">TailwindCSS + Recharts</td>
+                  <td style="padding:var(--space-2)">3.4.19 + 3.5.1 - Styling and charts</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"><strong>Backend</strong></td>
+                  <td style="padding:var(--space-2)">Node.js + Express</td>
+                  <td style="padding:var(--space-2)">18+ - RESTful API server</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"></td>
+                  <td style="padding:var(--space-2)">MongoDB + Mongoose</td>
+                  <td style="padding:var(--space-2)">8.0.3 - NoSQL database with ODM</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"></td>
+                  <td style="padding:var(--space-2)">Socket.io</td>
+                  <td style="padding:var(--space-2)">4.8.1 - Real-time bidirectional comm</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"></td>
+                  <td style="padding:var(--space-2)">JWT + bcryptjs</td>
+                  <td style="padding:var(--space-2)">9.0.2 - Secure authentication</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"><strong>Code Execution</strong></td>
+                  <td style="padding:var(--space-2)">Judge0 API</td>
+                  <td style="padding:var(--space-2)">Remote compilation and execution</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"><strong>AI Models</strong></td>
+                  <td style="padding:var(--space-2)">Ollama (Local)</td>
+                  <td style="padding:var(--space-2)">DeepSeek-R1, Mistral, Qwen2.5-coder</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)"></td>
+                  <td style="padding:var(--space-2)">Google Gemini (Cloud)</td>
+                  <td style="padding:var(--space-2)">6-tier cascade fallback</td>
+                </tr>
+                <tr>
+                  <td style="padding:var(--space-2)"><strong>ML Framework</strong></td>
+                  <td style="padding:var(--space-2)">MindSpore + Flask</td>
+                  <td style="padding:var(--space-2)">2.7.1 - ML model serving microservice</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- System Architecture section -->
+            <h2>System Architecture</h2>
+            <p>
+              The platform implements a sophisticated microservices architecture with three independent layers:
+            </p>
+            <ul>
+              <li><strong>Frontend Layer:</strong> React SPA with Monaco Editor, xterm.js terminal, real-time dashboards, and responsive design</li>
+              <li><strong>Backend Layer:</strong> Node.js/Express API with JWT authentication, Socket.io real-time communication, and comprehensive business logic</li>
+              <li><strong>ML Layer:</strong> MindSpore-based microservice for LSTM predictions, VAE anomaly detection, DQN optimization, and GAT knowledge graphs</li>
+              <li><strong>External Services:</strong> Judge0 for code execution, MongoDB for persistent storage, Ollama/Gemini for LLM inference</li>
+            </ul>
+
+            <!-- Core Innovation section -->
+            <h2>Core Innovation: Digital Twin Technology</h2>
+            <ul>
+              <li><strong>Mirror Twin:</strong> Real-time behavioral data collection tracking typing speed, pause patterns, error frequency, and session metrics</li>
+              <li><strong>Shadow Twin:</strong> AI assistant with 5-level progressive hint system adapting to individual learning styles and competency levels</li>
+              <li><strong>Predictive Modeling:</strong> ML-driven success prediction and at-risk student identification enabling proactive interventions</li>
+              <li><strong>Personalized Learning:</strong> Adaptive difficulty, content recommendations, and learning path optimization based on individual patterns</li>
+            </ul>
+
+            <!-- Security & Integrity section -->
+            <h2>Academic Integrity & Security Features</h2>
+            <ul>
+              <li><strong>Behavioral Monitoring:</strong> Detects tab switches, idle time, suspicious patterns without invasive surveillance</li>
+              <li><strong>Plagiarism Detection:</strong> Token-based code similarity analysis with multiple algorithms</li>
+              <li><strong>Lockdown Mode:</strong> Disables AI assistance during high-stakes assessments</li>
+              <li><strong>Copy-paste Prevention:</strong> External paste blocking in restricted activities</li>
+              <li><strong>Transparent Flagging:</strong> Clear integrity scoring and activity monitoring indicators</li>
+            </ul>
+
+            <!-- Impact & Future section -->
+            <h2>Impact & Future Roadmap</h2>
+            <p><strong>Current Achievements:</strong> 97% feature completion, real-time WebSocket implementation, multi-model AI routing, comprehensive behavioral analytics</p>
+            <p><strong>Short-term (3-6 months):</strong> Mobile optimization, advanced analytics with PDF export, email notifications, performance monitoring</p>
+            <p><strong>Medium-term (6-12 months):</strong> Adaptive difficulty ML, collaborative features, extended language support, LMS integration APIs</p>
+            <p><strong>Long-term (1-2 years):</strong> Multi-institution scalability, natural language problem processing, VR/AR immersive environments, research analytics</p>
+
+            <!-- Development Notes section -->
+            <h2>Development Notes</h2>
+            <p>
+              <strong>Claude Code Agentic AI Integration:</strong> This project was developed with critical support from Claude Code Agentic AI, which assisted in architectural decisions, complex feature implementation, debugging, and optimization. The AI helped navigate the complexity of integrating multiple technologies (React, Node.js, MindSpore, LLMs) into a cohesive system while maintaining code quality and performance.
+            </p>
+            <p>
+              <strong>Key Achievements:</strong> Full-stack modern web application combining cutting-edge AI/ML with proven educational principles. Demonstrates expertise in microservices architecture, real-time systems, advanced code analysis, and educational technology design.
+            </p>
+
+            <!-- Links at the bottom -->
+            <div class="project-links">
+              <a href="https://yourtwin-frontend.bluebush-287550b9.koreacentral.azurecontainerapps.io/login" class="btn btn-primary" target="_blank" rel="noopener">Live Demo →</a>
+              <a href="https://github.com/joww-seph/yourtwin-code" class="btn btn-secondary" target="_blank" rel="noopener">View on GitHub →</a>
+              <a href="../projects.html" class="btn btn-ghost">← Back to All Projects</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Sidebar: Project Metadata ── -->
+        <div style="position:sticky;top:calc(var(--nav-height) + var(--space-8))" class="fade-in fade-in-delay-2">
+
+
+          <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);margin-bottom:var(--space-6)">
+            <h4 style="margin-bottom:var(--space-5)">Project Info</h4>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Type</div>
+              <div class="project-meta-value">Full-Stack Web Application</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Status</div>
+              <div class="project-meta-value" style="color:var(--color-success)">✓ Active Development</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Role</div>
+              <div class="project-meta-value">Full-Stack Developer &amp; Architect</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Frontend</div>
+              <div class="project-meta-value">React 19 + Vite + TailwindCSS</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">Backend</div>
+              <div class="project-meta-value">Node.js + Express + MongoDB</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-3)">
+              <div class="project-meta-label">AI/ML</div>
+              <div class="project-meta-value">MindSpore + Ollama + Gemini</div>
+            </div>
+
+            <div class="project-meta-item" style="margin-bottom:var(--space-5)">
+              <div class="project-meta-label">Tech Stack</div>
+              <div class="project-meta-value" style="margin-top:var(--space-2)\">Full-Stack · AI/ML · Real-Time · EdTech · Microservices</div>
+            </div>
+          </div>
+
+          <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6)">
+            <h4 style="margin-bottom:var(--space-4)">Links</h4>
+            <a href="https://yourtwin-frontend.bluebush-287550b9.koreacentral.azurecontainerapps.io/login" class="btn btn-primary" style="width:100%;margin-bottom:var(--space-3)" target="_blank" rel="noopener">Live Demo →</a>
+            <a href="https://github.com/joww-seph/yourtwin-code" class="btn btn-ghost" style="width:100%" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DOCUMENTATION ══════════════════════════════════════ -->
+  <section class="section" id="doc-gallery" data-doc-project="yourtwin-code" style="padding-top:0;display:none">
+    <div class="container">
+      <h2 style="margin-bottom:var(--space-6)">Documentation</h2>
+      <div id="doc-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4)"></div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
+  <footer class="r-footer">
+    <div class="container">
+      <div class="r-footer-inner">
+        <span class="r-footer-copy">&copy; <span id="footer-year"></span> Marc Joseph B. Sacopaso</span>
+        <div class="r-footer-links">
+          <a href="../projects.html" class="r-link">&#8592; All Projects</a>
+          <span class="r-link-sep">&#183;</span>
+          <a href="mailto:markjosephsacopaso@gmail.com" class="r-link">Email</a>
+          <span class="r-link-sep">&#183;</span>
+          <a href="https://github.com/joww-seph" class="r-link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../assets/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
