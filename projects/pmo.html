@@ -100,70 +100,98 @@
               The device targets Philippine households: it tracks live cost and CO₂ output, trips a relay automatically on 7 fault conditions, identifies which appliances are active through NILM signature matching, and generates twice-daily energy reports using Google Gemini AI. A four-page web dashboard at <a href="https://pmo.infinityfree.me/" target="_blank" rel="noopener">pmo.infinityfree.me</a> provides remote relay control, live charts, historical logs, and NILM management — refreshing every second without WebSockets.
             </p>
 
+            <!-- Problem Statement -->
+            <h2>Problem Statement</h2>
+            <p>Philippine households face critical energy challenges:</p>
+            <ul>
+              <li><strong>Poor Energy Visibility:</strong> No real-time consumption tracking beyond monthly bills</li>
+              <li><strong>Safety Risks:</strong> Overcurrent, voltage surges, and electrical faults go undetected</li>
+              <li><strong>Cloud Dependency:</strong> WiFi-only monitors become useless during outages</li>
+              <li><strong>Ineffective Cost Reduction:</strong> Generic energy tips don't match actual household usage patterns</li>
+              <li><strong>Appliance Identification:</strong> Impossible to identify which devices consume the most power without sub-metering</li>
+              <li><strong>Safety Monitoring:</strong> No visibility into power factor, frequency deviation, or CO₂ footprint without an electrician</li>
+            </ul>
+            <p><strong>PMO solves these problems with a single device that works offline and online, combining hardware safety with AI-powered insights.</strong></p>
+
             <!-- Hardware Stack section -->
+            <!-- System Architecture -->
+            <h2>System Architecture</h2>
+            <p><strong>Three-Tier Design:</strong> Local Hardware → Cloud API → Web Dashboard</p>
+            <ul>
+              <li><strong>Hardware Layer:</strong> ESP32 core reads PZEM sensor at 2s intervals, evaluates 7 protection criteria, updates 3 display types, manages relay switching</li>
+              <li><strong>Cloud Layer:</strong> PHP backend on InfinityFree receives sensor data, caches relay commands, runs Gemini AI analytics at 6 AM/6 PM, manages NILM appliance registry</li>
+              <li><strong>Frontend Layer:</strong> Vanilla JS dashboard polls cloud API at 1 Hz, renders real-time charts via Chart.js, provides relay control and NILM registration UI</li>
+              <li><strong>Dual-Core Firmware:</strong> Core 1 (sensor + protection @ 2s), Core 0 (cloud sync @ 3s) with FreeRTOS semaphore synchronization</li>
+            </ul>
+
             <h2>Hardware Stack</h2>
             <table style="width:100%;margin-bottom:var(--space-6);border-collapse:collapse">
               <thead>
                 <tr style="border-bottom:2px solid var(--color-border)">
                   <th style="padding:var(--space-2);text-align:left;font-weight:600">Component</th>
                   <th style="padding:var(--space-2);text-align:left;font-weight:600">Part</th>
-                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Interface</th>
+                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Role</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="border-bottom:1px solid var(--color-border)">
                   <td style="padding:var(--space-2)">Microcontroller</td>
-                  <td style="padding:var(--space-2)">ESP32 NodeMCU</td>
-                  <td style="padding:var(--space-2)">—</td>
+                  <td style="padding:var(--space-2)">ESP32 NodeMCU (240 MHz dual-core)</td>
+                  <td style="padding:var(--space-2)">Main controller: sensor polling, protection logic, display drivers, WiFi</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--color-border)">
+                  <td style="padding:var(--space-2)">Power Meter</td>
+                  <td style="padding:var(--space-2)">PZEM-004T v3.0</td>
+                  <td style="padding:var(--space-2)">Measures voltage, current, power, frequency, power factor via UART2</td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--color-border)">
                   <td style="padding:var(--space-2)">Primary Display</td>
-                  <td style="padding:var(--space-2)">ILI9488 480×320 TFT</td>
-                  <td style="padding:var(--space-2)">SPI + XPT2046 touch</td>
+                  <td style="padding:var(--space-2)">ILI9488 480×320 TFT + XPT2046 touch</td>
+                  <td style="padding:var(--space-2)">Main UI: animated BMO face, WiFi setup wizard, real-time status</td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Secondary Display</td>
-                  <td style="padding:var(--space-2)">SSD1306 128×64 OLED</td>
-                  <td style="padding:var(--space-2)">I²C @ <code>0x3C</code></td>
+                  <td style="padding:var(--space-2)">Secondary OLED</td>
+                  <td style="padding:var(--space-2)">SSD1306 128×64</td>
+                  <td style="padding:var(--space-2)">Compact metrics: time, relay status, trip reason (I²C @ 0x3C)</td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--color-border)">
                   <td style="padding:var(--space-2)">Character LCD</td>
-                  <td style="padding:var(--space-2)">16×2 LCD</td>
-                  <td style="padding:var(--space-2)">I²C @ <code>0x27</code></td>
+                  <td style="padding:var(--space-2)">16×2 LCD with custom ₱ currency char</td>
+                  <td style="padding:var(--space-2)">Rotating metric screens: voltage, current, power, cost, CO₂ (I²C @ 0x27)</td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Power Sensor</td>
-                  <td style="padding:var(--space-2)">PZEM-004T v3.0</td>
-                  <td style="padding:var(--space-2)">UART2 (GPIO 16/17)</td>
+                  <td style="padding:var(--space-2)">Circuit Protection</td>
+                  <td style="padding:var(--space-2)">Relay module (normally-ON)</td>
+                  <td style="padding:var(--space-2)">GPIO 32: trips OFF on fault, auto-restores after 5s cooldown</td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Protection</td>
-                  <td style="padding:var(--space-2)">Single-channel Relay Module</td>
-                  <td style="padding:var(--space-2)">GPIO 32</td>
+                  <td style="padding:var(--space-2)">Audio Output <em>(optional)</em></td>
+                  <td style="padding:var(--space-2)">I2S DAC (MAX98357A-like)</td>
+                  <td style="padding:var(--space-2)">Alert sounds and TTS recommendations via GPIO 26/27/5</td>
                 </tr>
                 <tr>
                   <td style="padding:var(--space-2)">Occupancy <em>(optional)</em></td>
                   <td style="padding:var(--space-2)">ESP32-CAM + OV3660</td>
-                  <td style="padding:var(--space-2)">UART (Edge Impulse person detection)</td>
+                  <td style="padding:var(--space-2)">Edge Impulse person detection; sends occupancy flag via UART</td>
                 </tr>
               </tbody>
             </table>
 
-            <!-- Key Features section -->
+            <!-- Firmware Features section -->
             <h2>Firmware Features</h2>
             <ul>
-              <li><strong>Animated Face Interface (TFT):</strong> BMO-inspired animated face with states: idle (persistent), touch reaction (2s), and blink (150ms every 7s)</li>
-              <li><strong>16×2 LCD Metric Display:</strong> Rotates through 8 screens every 3 seconds (voltage, current, power, frequency, cost, CO₂, safety margin, etc.)</li>
-              <li><strong>WiFi Manager:</strong> Custom touchscreen provisioning UI with on-screen keyboard, signal strength indicators, and SPIFFS persistence</li>
-              <li><strong>Real-time Sensor Loop:</strong> PZEM-004T polled every 2 seconds over UART; derives cost, CO₂ footprint, load type, power factor, and more</li>
-              <li><strong>Relay Protection:</strong> 7-condition fault detection (undervoltage, overvoltage, overcurrent, overpower, under/over-frequency, low PF) with hysteresis and auto-restore</li>
-              <li><strong>Cloud Logging:</strong> HTTPS POST via WiFiClientSecure with AES-128-CBC cookie bypass for InfinityFree hosting</li>
-              <li><strong>OLED Display:</strong> Shows current time, date, relay status, and active trip reason (SSD1306)</li>
-              <li><strong>Dual-Core FreeRTOS:</strong> Core 1 handles sensor reads and protection at 2s; Core 0 runs async cloud sync at 3s — semaphore-protected shared payload</li>
+              <li><strong>Animated Face Interface (TFT):</strong> BMO-inspired character with idle, touch reaction (2s), and blink animations (150ms every 7s) — emotional feedback for user interactions</li>
+              <li><strong>16×2 LCD Metric Carousel:</strong> Auto-rotates 8 screens every 3s: voltage, current, power, frequency, cost/hour, CO₂, safety margin, and load type</li>
+              <li><strong>WiFi Manager UI:</strong> Full touchscreen provisioning with on-screen QWERTY keyboard, RSSI signal strength sorting, SPIFFS credential caching</li>
+              <li><strong>Real-time Sensor Loop:</strong> PZEM-004T polled every 2 seconds; calculates 13 derived metrics including cost/hour, wasted power, safety margin, and CO₂ equivalent</li>
+              <li><strong>Relay Protection Logic:</strong> 7 independent fault criteria (UV/OV/OC/OP/UF/OF/LPF) with hysteresis-based thresholds to prevent chattering; 5s auto-restore cooldown</li>
+              <li><strong>Cloud Synchronization:</strong> Async HTTPS POST every 3s via WiFiClientSecure; includes AES-128-CBC cookie caching to bypass InfinityFree bot protection</li>
+              <li><strong>OLED Status Display:</strong> Compact view of current time, relay state, and active trip reason — always readable in low-light conditions</li>
+              <li><strong>Dual-Core Architecture:</strong> Core 1 (Main Loop @ 2s): sensor reads, protection eval, display updates | Core 0 (HTTP Task @ 3s): cloud upload and relay polling — synchronized via FreeRTOS semaphores</li>
             </ul>
 
             <!-- Metrics Engine section -->
-            <h2>Metrics Engine</h2>
+            <h2>Metrics Engine (13 Real-Time Metrics)</h2>
             <p>The PZEM-004T v3.0 sensor is polled every 2 seconds, delivering raw readings (voltage, current, power, energy, frequency, power factor). These are processed to derive:</p>
             <ul>
               <li><strong>Apparent Power (S):</strong> V × I (VA)</li>
@@ -228,33 +256,64 @@
             </table>
 
             <!-- Cloud Backend section -->
-            <h2>Cloud Backend & Web Dashboard</h2>
-            <p><strong>Hosting:</strong> InfinityFree (HTTPS at <a href="https://pmo.infinityfree.me/" target="_blank" rel="noopener">pmo.infinityfree.me</a>) | <strong>Database:</strong> phpMyAdmin | <strong>Stack:</strong> PHP, Vanilla JS, Chart.js</p>
-            <p>The ESP32 posts timestamped readings every 2 seconds. The four-page dashboard polls the API at 1 Hz with stale-connection detection (visual lock after 5 missed updates):</p>
+            <h2>Audio & Multimedia System</h2>
             <ul>
-              <li><strong>Dashboard</strong> — relay control panel, AI analytics card (letter grade A–F, ₱ bill prediction, 3 recommendations)</li>
-              <li><strong>Monitor</strong> — 13 live metric cards with dynamic color thresholds (green → amber → red)</li>
-              <li><strong>History</strong> — 4 real-time Chart.js line charts (Voltage, Power Triangle, Current/PF, Frequency) + 30-reading scrollable log</li>
-              <li><strong>NILM</strong> — appliance registration modal (30s sampling), live detection display with confidence scores</li>
+              <li><strong>I2S Audio DAC Interface:</strong> GPIO 26 (BCLK), GPIO 27 (LRC), GPIO 5 (DOUT) for speaker output</li>
+              <li><strong>Alert Sounds:</strong> Per-fault audio classification — distinct tones for overcurrent, undervoltage, overvoltage, etc.</li>
+              <li><strong>TTS Integration:</strong> Google Gemini voice synthesis generates BMO-personality recommendations in Adventure Time style</li>
+              <li><strong>SD Card Audio System:</strong> Async prefetch downloads cached TTS and alert WAV/MP3 files during idle periods (semaphore-protected access)</li>
+              <li><strong>WiFi Camera Integration:</strong> Optional ESP32-CAM JPEG snapshots can be uploaded for occupancy-based relay automation</li>
             </ul>
-            <p><strong>AI Analytics:</strong> Google Gemini 1.5 Flash generates energy reports twice daily (6 AM &amp; 6 PM, Asia/Manila), aggregating daily stats into a letter grade, projected month-end bill, and 3 household-specific recommendations. Results are cached with a 5.5-hour TTL.</p>
-            <p><strong>NILM (Non-Intrusive Load Monitoring):</strong> Users register appliance power signatures through a 30-second sampling flow. Detection runs an exhaustive subset search against live metrics and returns matched device names with confidence scores — no additional sensors required.</p>
+
+            <!-- Dual-Core Architecture -->
+            <h2>Dual-Core Real-Time Design</h2>
+            <p><strong>Core 1 (Main Loop — Priority: Sensor + Protection):</strong></p>
+            <ul>
+              <li>Polls PZEM-004T sensor every 2 seconds</li>
+              <li>Evaluates 7 protection criteria with hysteresis</li>
+              <li>Updates TFT animated face, OLED, and rotating LCD screens</li>
+              <li>Plays audio alerts immediately when faults are detected</li>
+              <li>Protected access to shared `HttpPayload` struct via FreeRTOS semaphore</li>
+            </ul>
+            <p><strong>Core 0 (HTTP Task — Priority: Cloud Sync):</strong></p>
+            <ul>
+              <li>POSTs timestamped readings to cloud every 3 seconds</li>
+              <li>Polls relay command queue from backend (async control queue)</li>
+              <li>Implements 3-minute timeout handling for lost connections</li>
+              <li>Includes AES-128-CBC cookie caching to bypass InfinityFree protections</li>
+              <li>Non-blocking: firmware continues operating locally if cloud is unreachable</li>
+            </ul>
+
+            <h2>Web Backend & Dashboard</h2>
+            <p><strong>Backend Stack:</strong> PHP 7.2+, MariaDB 11.4 (InfinityFree) | <strong>Frontend:</strong> Vanilla JavaScript, Chart.js 4.4.1, no frameworks</p>
+            <p><strong>Four-Page Dashboard at <a href="https://pmo.infinityfree.me/" target="_blank" rel="noopener">pmo.infinityfree.me</a>:</strong></p>
+            <ul>
+              <li><strong>Dashboard:</strong> Relay control panel, AI analytics card (A–F rating + ₱ bill forecast + 3 recommendations), WiFi status, 1s refresh</li>
+              <li><strong>Monitor:</strong> 13 live metric cards with dynamic color thresholds (green → amber → red based on safety margins)</li>
+              <li><strong>History:</strong> 4 real-time Chart.js line charts (Voltage, Power Triangle, Current/PF dual-axis, Frequency) + 30-row scrollable sensor log</li>
+              <li><strong>NILM Page:</strong> Appliance registry with 30-second training modal, live detection with confidence scores, signature management</li>
+            </ul>
+            <p><strong>AI Analytics:</strong> Google Gemini 1.5 Flash generates daily energy reports at 6 AM &amp; 6 PM (Asia/Manila timezone). Aggregates daily stats (avg voltage, avg power, total energy, avg PF, cost projection) into letter grade (A–F), month-end ₱ bill estimate, and 3 household-specific recommendations. Results cached with 5.5-hour TTL to avoid redundant API calls.</p>
+            <p><strong>NILM (Non-Intrusive Load Monitoring):</strong> Users register 30-second power signatures for any appliance. Detection algorithm runs exhaustive subset search against live metrics with confidence scoring. Returns matched device names and subset composition — no additional sensors needed.</p>
+
+            <!-- Key Metrics & Impact -->
+            <h2>Key Metrics & Impact</h2>
+            <ul>
+              <li><strong>13 Electrical Metrics:</strong> Voltage, current, power, energy, frequency, power factor, apparent power (VA), reactive power (VAR), load type, cost/hour, cost/month, wasted power, safety margin</li>
+              <li><strong>7 Protection Criteria:</strong> Independent trip/restore thresholds with hysteresis — UV (195/205V), OV (250/240V), OC (15/13.5A), OP (3200/3000W), UF (57/58.5Hz), OF (63/61.5Hz), LPF (0.50/0.65)</li>
+              <li><strong>Real-Time Cloud Sync:</strong> 1 Hz web dashboard refresh with stale-connection detection (auto-lock after 5 missed updates)</li>
+              <li><strong>AI Recommendations:</strong> Twice-daily Gemini-powered energy tips personalized to household usage patterns, delivered via text and BMO-voiced audio</li>
+              <li><strong>Offline Resilience:</strong> Full protection and display functionality without internet; graceful cloud re-sync when connection restored</li>
+              <li><strong>NILM Algorithm:</strong> O(2^n) exhaustive subset search with confidence scoring for practical performance on &lt;10 appliances</li>
+            </ul>
 
             <!-- Tech Stack section -->
             <h2>Tech Stack & Key Dependencies</h2>
-            <p><strong>Firmware (C/C++ on Arduino Core v3.x):</strong></p>
-            <ul>
-              <li>TFT_eSPI (ILI9488 rendering + XPT2046 touch)</li>
-              <li>LiquidCrystal_I2C (16×2 LCD control)</li>
-              <li>PZEM004Tv30 (power sensor driver)</li>
-              <li>Adafruit_SSD1306 (OLED rendering)</li>
-              <li>ArduinoJson (JSON serialization)</li>
-              <li>WiFiClientSecure + HTTPClient (HTTPS communication)</li>
-              <li>mbedtls/aes.h (AES-128-CBC for InfinityFree cookie bypass)</li>
-              <li>SPIFFS (persistent storage)</li>
-            </ul>
-            <p><strong>Web Backend:</strong> PHP + phpMyAdmin + HTML/CSS/Vanilla JS + Chart.js</p>
-            <p><strong>AI:</strong> Google Gemini (energy analytics) | <strong>Optional ML:</strong> Edge Impulse (person detection on ESP32-CAM)</p>
+            <p><strong>Firmware (C/C++ on Arduino Core):</strong> TFT_eSPI, PZEM004Tv30, LiquidCrystal_I2C, Adafruit_SSD1306, ArduinoJson, WiFiClientSecure, mbedtls/aes.h (AES-128-CBC), SPIFFS, ESP8266Audio (I2S playback), TJpg_Decoder</p>
+            <p><strong>Backend:</strong> PHP 7.2+, MariaDB 11.4, PDO/MySQLi, RESTful JSON API with CORS headers</p>
+            <p><strong>Frontend:</strong> HTML5, CSS3 (Grid/Flexbox), Vanilla JavaScript (minimal bundle size), Chart.js 4.4.1 for real-time visualization</p>
+            <p><strong>AI / ML:</strong> Google Gemini 1.5 Flash (energy recommendations), Edge Impulse (on-device CNN for ESP32-CAM occupancy detection), Google Cloud TTS (BMO personality voice)</p>
+            <p><strong>Infrastructure:</strong> InfinityFree free-tier HTTPS hosting, Git version control, AES-128-CBC cookie caching for bot protection, timezone-aware scheduling (Asia/Manila)</p>
 
             <!-- Links -->
             <div class="project-links">
