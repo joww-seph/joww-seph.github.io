@@ -1,53 +1,22 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found — Your Name</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <title>Page Not Found — Marc Joseph B. Sacopaso</title>
+  <link rel="icon" href="assets/images/logo.png" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    .error-page {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: var(--space-8);
-    }
-    .error-code {
-      font-size: 8rem;
-      font-weight: 800;
-      line-height: 1;
-      color: var(--color-accent);
-      opacity: 0.15;
-      margin-bottom: var(--space-4);
-      letter-spacing: -0.05em;
-    }
-    .error-content { max-width: 480px; }
-    .error-title   { margin-bottom: var(--space-4); }
-    .error-body    { margin-bottom: var(--space-8); }
-  </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">YN<span>.</span></a>
-      <div class="nav-actions">
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-          </svg>
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </nav>
+
+  <div id="nav-root"></div>
 
   <div class="error-page">
     <div class="error-content">
+      <nav class="breadcrumb" style="justify-content:center;margin-bottom:var(--space-6)">
+        <span><a href="index.html">Home</a></span>
+        <span>404</span>
+      </nav>
       <div class="error-code">404</div>
       <h1 class="error-title">Page not found</h1>
       <p class="error-body">
@@ -66,6 +35,13 @@
     </div>
   </div>
 
+  <div id="footer-root"></div>
+
   <script src="assets/js/main.js"></script>
-</body>
+  <div class="deco-line" style="width:130px;height:6px;top:12%;left:6%;background:var(--color-accent);"></div>
+  <div class="deco-line" style="width:6px;height:160px;bottom:15%;right:4%;background:var(--color-sapphire);border-radius:var(--radius-full);"></div>
+  <div class="deco-line" style="width:180px;height:5px;top:50%;right:8%;background:var(--color-green);"></div>
+  <div class="deco-line" style="width:100px;height:4px;top:30%;right:3%;background:var(--color-blue);"></div>
+  <div class="deco-line" style="width:5px;height:90px;top:65%;left:2%;background:var(--color-sapphire);border-radius:var(--radius-full);"></div>
+  <div class="deco-line" style="width:150px;height:4px;bottom:30%;left:8%;background:var(--color-green);"></div></body>
 </html>

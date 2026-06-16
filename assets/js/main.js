@@ -4,15 +4,8 @@ const ThemeManager = {
 
   init() {
     const saved = localStorage.getItem(this.STORAGE_KEY);
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = saved || (prefersDark ? 'dark' : 'light');
+    const theme = saved || 'dark';
     this.apply(theme);
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!localStorage.getItem(this.STORAGE_KEY)) {
-        this.apply(e.matches ? 'dark' : 'light');
-      }
-    });
   },
 
   apply(theme) {
@@ -29,6 +22,39 @@ const ThemeManager = {
 // ── 2. Navigation ─────────────────────────────────────────────
 const NavManager = {
   init() {
+    this.navRoot = document.querySelector('#nav-root');
+    if (this.navRoot) {
+      this.loadNav();
+    } else {
+      this.setupNav();
+    }
+  },
+
+  async loadNav() {
+    const inSubfolder = window.location.pathname.replace(/\\/g, '/').includes('/projects/');
+    const base = inSubfolder ? '../assets/' : 'assets/';
+
+    try {
+      const res = await fetch(`${base}components/nav.html`);
+      const html = await res.text();
+      this.navRoot.innerHTML = html;
+
+      if (inSubfolder) {
+        this.navRoot.querySelectorAll('a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && !href.startsWith('http') && !href.startsWith('/') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+            a.setAttribute('href', `../${href}`);
+          }
+        });
+      }
+
+      this.setupNav();
+    } catch (err) {
+      console.error('Failed to load navigation:', err);
+    }
+  },
+
+  setupNav() {
     this.nav          = document.querySelector('.nav');
     this.mobileToggle = document.querySelector('.nav-mobile-toggle');
     this.mobileDrawer = document.querySelector('.nav-mobile-drawer');
@@ -55,11 +81,23 @@ const NavManager = {
   },
 
   setActiveLink() {
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const root = document.querySelector('#nav-root');
+    const activePage = root?.dataset.active;
+
     document.querySelectorAll('.nav-link').forEach(link => {
       const href = link.getAttribute('href');
-      if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-        link.classList.add('active');
+      if (!href) return;
+
+      if (activePage) {
+        if (href.includes(activePage + '.html')) {
+          link.classList.add('active');
+        }
+      } else {
+        const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+        const hrefFile = href.split('/').pop();
+        if (hrefFile === currentFile || (currentFile === '' && hrefFile === 'index.html')) {
+          link.classList.add('active');
+        }
       }
     });
   },
@@ -87,7 +125,58 @@ const NavManager = {
   }
 };
 
-// ── 3. Scroll-to-Top ─────────────────────────────────────────
+// ── 3. Footer ──────────────────────────────────────────────────
+const FooterManager = {
+  init() {
+    this.footerRoot = document.querySelector('#footer-root');
+    if (this.footerRoot) this.loadFooter();
+  },
+
+  async loadFooter() {
+    const inSubfolder = window.location.pathname.replace(/\\/g, '/').includes('/projects/');
+    const base = inSubfolder ? '../assets/' : 'assets/';
+
+    try {
+      const res = await fetch(`${base}components/footer.html`);
+      const html = await res.text();
+      this.footerRoot.innerHTML = html;
+
+      if (inSubfolder) {
+        this.footerRoot.querySelectorAll('a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && !href.startsWith('http') && !href.startsWith('/') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+            a.setAttribute('href', `../${href}`);
+          }
+        });
+      }
+
+      const variant = this.footerRoot.dataset.footer || 'standard';
+      const linkedin = this.footerRoot.querySelector('.footer-link-linkedin');
+      const facebook = this.footerRoot.querySelector('.footer-link-facebook');
+      const backLink = this.footerRoot.querySelector('.footer-link-back');
+
+      if (variant === 'contact') {
+        if (linkedin) linkedin.style.display = '';
+        if (facebook) facebook.style.display = '';
+      } else if (variant === 'project') {
+        if (linkedin) linkedin.style.display = 'none';
+        if (facebook) facebook.style.display = 'none';
+        if (backLink) backLink.style.display = '';
+      } else {
+        if (linkedin) linkedin.style.display = '';
+        if (facebook) facebook.style.display = 'none';
+        if (backLink) backLink.style.display = 'none';
+      }
+
+      const yearEl = this.footerRoot.querySelector('#footer-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    } catch (err) {
+      console.error('Failed to load footer:', err);
+    }
+  }
+};
+
+// ── 4. Scroll-to-Top ─────────────────────────────────────────
 const ScrollTopManager = {
   init() {
     this.btn = document.querySelector('.scroll-top');
@@ -103,7 +192,7 @@ const ScrollTopManager = {
   }
 };
 
-// ── 4. Scroll Animations ──────────────────────────────────────
+// ── 5. Scroll Animations ──────────────────────────────────────
 const AnimationManager = {
   init() {
     const elements = document.querySelectorAll('.fade-in');
@@ -125,7 +214,7 @@ const AnimationManager = {
   }
 };
 
-// ── 5. Project Asset Loader ───────────────────────────────────
+// ── 6. Project Asset Loader ───────────────────────────────────
 
 const ProjectAssetManager = {
   EXTENSIONS: ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg'],
@@ -198,7 +287,7 @@ const ProjectAssetManager = {
   }
 };
 
-// ── 6. Project Card Renderer ──────────────────────────────────
+// ── 7. Project Card Renderer ──────────────────────────────────
 const ProjectsRenderer = {
   containerSelector: '#projects-grid',
 
@@ -254,6 +343,10 @@ const ProjectsRenderer = {
 
     const projectLink = project.file ? `projects/${project.file}` : '#';
 
+    const tagsHTML = project.tags && project.tags.length
+      ? `<div class="project-card-tags">${project.tags.map(t => `<span class="tag tag-accent">${this.escapeHTML(t)}</span>`).join('')}</div>`
+      : '';
+
     const card = document.createElement('article');
     card.className = 'project-card fade-in';
     card.style.transitionDelay = `${index * 0.05}s`;
@@ -267,6 +360,7 @@ const ProjectsRenderer = {
         <h3 class="project-card-title">${this.escapeHTML(project.title)}</h3>
         <p class="project-card-description">${this.escapeHTML(project.description)}</p>
         <div class="project-card-footer">
+          ${tagsHTML}
           <a href="${projectLink}" class="project-card-link" aria-label="View ${this.escapeHTML(project.title)}">
             View
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="14" height="14">
@@ -303,7 +397,7 @@ const ProjectsRenderer = {
   }
 };
 
-// ── 7. Documentation Gallery ──────────────────────────────────
+// ── 8. Documentation Gallery ──────────────────────────────────
 
 const DocGalleryManager = {
   EXTENSIONS: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
@@ -382,7 +476,7 @@ const DocGalleryManager = {
   }
 };
 
-// ── 8. Contact Form Handler ───────────────────────────────────
+// ── 9. Contact Form Handler ───────────────────────────────────
 const ContactFormManager = {
   init() {
     this.form = document.querySelector('#contact-form');
@@ -417,10 +511,11 @@ const ContactFormManager = {
   }
 };
 
-// ── 9. Initialization ─────────────────────────────────────────
+// ── 10. Initialization ─────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   ThemeManager.init();
   NavManager.init();
+  FooterManager.init();
   ScrollTopManager.init();
   AnimationManager.init();
   ProjectsRenderer.init();
@@ -428,7 +523,8 @@ document.addEventListener('DOMContentLoaded', () => {
   DocGalleryManager.init();
   ContactFormManager.init();
 
-  document.querySelectorAll('.theme-toggle').forEach(btn => {
-    btn.addEventListener('click', () => ThemeManager.toggle());
+  document.addEventListener('click', e => {
+    const toggle = e.target.closest('.theme-toggle');
+    if (toggle) ThemeManager.toggle();
   });
 });

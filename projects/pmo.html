@@ -1,59 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PMO (Power Monitoring Operator) — Marc Joseph B. Sacopaso</title>
-  <meta name="description" content="Real-time energy monitoring system with ESP32, AI analytics, and a BMO-inspired animated face. Embedded IoT device with cloud dashboard." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <meta name="description" content="AI-powered residential energy monitoring and protection system built on ESP32. Real-time electrical tracking, automated safety control, and intelligent energy insights." />
+  <link rel="icon" href="../assets/images/logo.png" />
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
 
-  <!-- ═══ NAVIGATION ════════════════════════════════════════ -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="../index.html" class="nav-logo">MJBS<span>.</span></a>
-      <ul class="nav-links" role="list">
-        <li><a href="../index.html"    class="nav-link">Home</a></li>
-        <li><a href="../about.html"    class="nav-link">About</a></li>
-        <li><a href="../projects.html"     class="nav-link active">Projects</a></li>
-        <li><a href="../achievements.html" class="nav-link">Achievements</a></li>
-        <li><a href="../leadership.html"   class="nav-link">Leadership</a></li>
-        <li><a href="../contact.html"      class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-          </svg>
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-          </svg>
-        </button>
-        <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div class="nav-mobile-drawer" role="menu">
-      <a href="../index.html"    class="nav-link" role="menuitem">Home</a>
-      <a href="../about.html"    class="nav-link" role="menuitem">About</a>
-      <a href="../projects.html"     class="nav-link active" role="menuitem">Projects</a>
-      <a href="../achievements.html" class="nav-link" role="menuitem">Achievements</a>
-      <a href="../leadership.html"   class="nav-link" role="menuitem">Leadership</a>
-      <a href="../contact.html"      class="nav-link" role="menuitem">Contact</a>
-    </div>
-  </nav>
+<div id="nav-root" data-active="projects"></div>
 
   <!-- ═══ PROJECT HERO ══════════════════════════════════════ -->
   <div class="project-detail-hero">
     <div class="container">
 
-      <!-- Breadcrumb (back link) -->
       <div class="breadcrumb fade-in">
+        <span><a href="../index.html">Home</a></span>
         <span><a href="../projects.html">Projects</a></span>
         <span>PMO (Power Monitoring Operator)</span>
       </div>
@@ -63,11 +27,13 @@
 
       <!-- Short description -->
       <p style="font-size:var(--text-xl);color:var(--color-text-secondary);max-width:700px" class="fade-in fade-in-delay-2">
-        A residential energy monitoring and protection device built around an ESP32 microcontroller. Real-time electrical monitoring with a BMO-inspired animated face, cloud analytics, and AI-powered insights. <strong>Work In Progress.</strong>
+        AI-powered residential energy monitoring and protection system built on ESP32. Real-time electrical tracking, automated safety control, and intelligent energy insights with both offline and cloud capabilities.
       </p>
 
       <!-- Action Buttons -->
       <div class="project-links fade-in fade-in-delay-3" style="margin-top:var(--space-6);padding-top:0;border-top:none">
+        <a href="https://pmo.infinityfree.me/" class="btn btn-primary" target="_blank" rel="noopener">Live Demo →</a>
+        <a href="https://github.com/joww-seph/pmo" class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
     </div>
@@ -76,7 +42,7 @@
   <!-- ═══ PROJECT CONTENT ════════════════════════════════════ -->
   <section class="section">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-12);align-items:start">
+      <div class="project-layout">
 
         <!-- ── Main Content ── -->
         <div>
@@ -91,245 +57,83 @@
 
           <div class="project-content">
 
-            <!-- Overview section -->
-            <h2>Overview</h2>
-            <p>
-              PMO (Power Monitor Operator) is a residential energy monitoring and protection system built around an ESP32 microcontroller with full IoT cloud integration. It measures 13 real-time electrical metrics via a PZEM-004T v3.0 power sensor and provides automated circuit protection, remote relay control, AI-powered energy analytics, and intelligent appliance identification — all in a single device that operates both offline (local touchscreen) and online (web dashboard).
-            </p>
-            <p>
-              The device targets Philippine households: it tracks live cost and CO₂ output, trips a relay automatically on 7 fault conditions, identifies which appliances are active through NILM signature matching, and generates twice-daily energy reports using Google Gemini AI. A four-page web dashboard at <a href="https://pmo.infinityfree.me/" target="_blank" rel="noopener">pmo.infinityfree.me</a> provides remote relay control, live charts, historical logs, and NILM management — refreshing every second without WebSockets.
-            </p>
+            <h2>Problem</h2>
+            <p>Philippine households lack real-time visibility into their electrical consumption, relying only on monthly bills that provide no actionable insights. Electrical risks such as overcurrent, voltage fluctuations, and poor power factor often go undetected, posing safety hazards. Existing smart monitors are heavily cloud-dependent, becoming unusable during internet outages. Additionally, users cannot identify which appliances consume the most energy without expensive sub-metering systems. This results in inefficient energy usage and higher costs without clear ways to optimize consumption.</p>
 
-            <!-- Problem Statement -->
-            <h2>Problem Statement</h2>
-            <p>Philippine households face critical energy challenges:</p>
-            <ul>
-              <li><strong>Poor Energy Visibility:</strong> No real-time consumption tracking beyond monthly bills</li>
-              <li><strong>Safety Risks:</strong> Overcurrent, voltage surges, and electrical faults go undetected</li>
-              <li><strong>Cloud Dependency:</strong> WiFi-only monitors become useless during outages</li>
-              <li><strong>Ineffective Cost Reduction:</strong> Generic energy tips don't match actual household usage patterns</li>
-              <li><strong>Appliance Identification:</strong> Impossible to identify which devices consume the most power without sub-metering</li>
-              <li><strong>Safety Monitoring:</strong> No visibility into power factor, frequency deviation, or CO₂ footprint without an electrician</li>
-            </ul>
-            <p><strong>PMO solves these problems with a single device that works offline and online, combining hardware safety with AI-powered insights.</strong></p>
-
-            <!-- Hardware Stack section -->
-            <!-- System Architecture -->
-            <h2>System Architecture</h2>
-            <p><strong>Three-Tier Design:</strong> Local Hardware → Cloud API → Web Dashboard</p>
-            <ul>
-              <li><strong>Hardware Layer:</strong> ESP32 core reads PZEM sensor at 2s intervals, evaluates 7 protection criteria, updates 3 display types, manages relay switching</li>
-              <li><strong>Cloud Layer:</strong> PHP backend on InfinityFree receives sensor data, caches relay commands, runs Gemini AI analytics at 6 AM/6 PM, manages NILM appliance registry</li>
-              <li><strong>Frontend Layer:</strong> Vanilla JS dashboard polls cloud API at 1 Hz, renders real-time charts via Chart.js, provides relay control and NILM registration UI</li>
-              <li><strong>Dual-Core Firmware:</strong> Core 1 (sensor + protection @ 2s), Core 0 (cloud sync @ 3s) with FreeRTOS semaphore synchronization</li>
-            </ul>
-
-            <h2>Hardware Stack</h2>
-            <table style="width:100%;margin-bottom:var(--space-6);border-collapse:collapse">
-              <thead>
-                <tr style="border-bottom:2px solid var(--color-border)">
-                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Component</th>
-                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Part</th>
-                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Role</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Microcontroller</td>
-                  <td style="padding:var(--space-2)">ESP32 NodeMCU (240 MHz dual-core)</td>
-                  <td style="padding:var(--space-2)">Main controller: sensor polling, protection logic, display drivers, WiFi</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Power Meter</td>
-                  <td style="padding:var(--space-2)">PZEM-004T v3.0</td>
-                  <td style="padding:var(--space-2)">Measures voltage, current, power, frequency, power factor via UART2</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Primary Display</td>
-                  <td style="padding:var(--space-2)">ILI9488 480×320 TFT + XPT2046 touch</td>
-                  <td style="padding:var(--space-2)">Main UI: animated BMO face, WiFi setup wizard, real-time status</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Secondary OLED</td>
-                  <td style="padding:var(--space-2)">SSD1306 128×64</td>
-                  <td style="padding:var(--space-2)">Compact metrics: time, relay status, trip reason (I²C @ 0x3C)</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Character LCD</td>
-                  <td style="padding:var(--space-2)">16×2 LCD with custom ₱ currency char</td>
-                  <td style="padding:var(--space-2)">Rotating metric screens: voltage, current, power, cost, CO₂ (I²C @ 0x27)</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Circuit Protection</td>
-                  <td style="padding:var(--space-2)">Relay module (normally-ON)</td>
-                  <td style="padding:var(--space-2)">GPIO 32: trips OFF on fault, auto-restores after 5s cooldown</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Audio Output <em>(optional)</em></td>
-                  <td style="padding:var(--space-2)">I2S DAC (MAX98357A-like)</td>
-                  <td style="padding:var(--space-2)">Alert sounds and TTS recommendations via GPIO 26/27/5</td>
-                </tr>
-                <tr>
-                  <td style="padding:var(--space-2)">Occupancy <em>(optional)</em></td>
-                  <td style="padding:var(--space-2)">ESP32-CAM + OV3660</td>
-                  <td style="padding:var(--space-2)">Edge Impulse person detection; sends occupancy flag via UART</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <!-- Firmware Features section -->
-            <h2>Firmware Features</h2>
-            <ul>
-              <li><strong>Animated Face Interface (TFT):</strong> BMO-inspired character with idle, touch reaction (2s), and blink animations (150ms every 7s) — emotional feedback for user interactions</li>
-              <li><strong>16×2 LCD Metric Carousel:</strong> Auto-rotates 8 screens every 3s: voltage, current, power, frequency, cost/hour, CO₂, safety margin, and load type</li>
-              <li><strong>WiFi Manager UI:</strong> Full touchscreen provisioning with on-screen QWERTY keyboard, RSSI signal strength sorting, SPIFFS credential caching</li>
-              <li><strong>Real-time Sensor Loop:</strong> PZEM-004T polled every 2 seconds; calculates 13 derived metrics including cost/hour, wasted power, safety margin, and CO₂ equivalent</li>
-              <li><strong>Relay Protection Logic:</strong> 7 independent fault criteria (UV/OV/OC/OP/UF/OF/LPF) with hysteresis-based thresholds to prevent chattering; 5s auto-restore cooldown</li>
-              <li><strong>Cloud Synchronization:</strong> Async HTTPS POST every 3s via WiFiClientSecure; includes AES-128-CBC cookie caching to bypass InfinityFree bot protection</li>
-              <li><strong>OLED Status Display:</strong> Compact view of current time, relay state, and active trip reason — always readable in low-light conditions</li>
-              <li><strong>Dual-Core Architecture:</strong> Core 1 (Main Loop @ 2s): sensor reads, protection eval, display updates | Core 0 (HTTP Task @ 3s): cloud upload and relay polling — synchronized via FreeRTOS semaphores</li>
-            </ul>
-
-            <!-- Metrics Engine section -->
-            <h2>Metrics Engine (13 Real-Time Metrics)</h2>
-            <p>The PZEM-004T v3.0 sensor is polled every 2 seconds, delivering raw readings (voltage, current, power, energy, frequency, power factor). These are processed to derive:</p>
-            <ul>
-              <li><strong>Apparent Power (S):</strong> V × I (VA)</li>
-              <li><strong>Reactive Power (Q):</strong> √(S² − P²) (VAR)</li>
-              <li><strong>Load Type:</strong> Classified by power factor (resistive, mixed, inductive, reactive)</li>
-              <li><strong>Cost/Hour:</strong> (P / 1000) × ₱13.8161/kWh</li>
-              <li><strong>Wasted Power:</strong> S − P (W)</li>
-              <li><strong>Safety Margin:</strong> ((16 − I) / 16) × 100 (%)</li>
-              <li><strong>CO₂ Equivalent:</strong> energy × 0.6032 kg/kWh</li>
-              <li><strong>Frequency Deviation:</strong> |f − 60| Hz</li>
-            </ul>
-            <p><em>Constants: 220V nominal @ 60Hz, 16A circuit rating, ₱13.8161/kWh electricity cost (Meralco), 0.6032 kg CO₂/kWh emission factor.</em></p>
-
-            <!-- Relay Protection section -->
-            <h2>Relay Protection System</h2>
-            <p>The relay is normally energized. It trips OFF when any fault occurs and auto-restores after a 5-second cooldown. All 7 conditions use hysteresis to prevent relay chatter:</p>
-            <table style="width:100%;margin-bottom:var(--space-6);border-collapse:collapse;font-size:0.95em">
-              <thead>
-                <tr style="border-bottom:2px solid var(--color-border)">
-                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Protection</th>
-                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Trip Threshold</th>
-                  <th style="padding:var(--space-2);text-align:left;font-weight:600">Restore Threshold</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Undervoltage</td>
-                  <td style="padding:var(--space-2)">&lt; 195 V</td>
-                  <td style="padding:var(--space-2)">≥ 205 V</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Overvoltage</td>
-                  <td style="padding:var(--space-2)">&gt; 250 V</td>
-                  <td style="padding:var(--space-2)">≤ 240 V</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Overcurrent</td>
-                  <td style="padding:var(--space-2)">&gt; 15 A</td>
-                  <td style="padding:var(--space-2)">≤ 13.5 A</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Overpower</td>
-                  <td style="padding:var(--space-2)">&gt; 3200 W</td>
-                  <td style="padding:var(--space-2)">≤ 3000 W</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Under-frequency</td>
-                  <td style="padding:var(--space-2)">&lt; 57 Hz</td>
-                  <td style="padding:var(--space-2)">≥ 58.5 Hz</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--color-border)">
-                  <td style="padding:var(--space-2)">Over-frequency</td>
-                  <td style="padding:var(--space-2)">&gt; 63 Hz</td>
-                  <td style="padding:var(--space-2)">≤ 61.5 Hz</td>
-                </tr>
-                <tr>
-                  <td style="padding:var(--space-2)">Low Power Factor</td>
-                  <td style="padding:var(--space-2)">&lt; 0.50 (P &gt; 100W)</td>
-                  <td style="padding:var(--space-2)">≥ 0.65 or P &lt; 50W</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <!-- Cloud Backend section -->
-            <h2>Audio & Multimedia System</h2>
-            <ul>
-              <li><strong>I2S Audio DAC Interface:</strong> GPIO 26 (BCLK), GPIO 27 (LRC), GPIO 5 (DOUT) for speaker output</li>
-              <li><strong>Alert Sounds:</strong> Per-fault audio classification — distinct tones for overcurrent, undervoltage, overvoltage, etc.</li>
-              <li><strong>TTS Integration:</strong> Google Gemini voice synthesis generates BMO-personality recommendations in Adventure Time style</li>
-              <li><strong>SD Card Audio System:</strong> Async prefetch downloads cached TTS and alert WAV/MP3 files during idle periods (semaphore-protected access)</li>
-              <li><strong>WiFi Camera Integration:</strong> Optional ESP32-CAM JPEG snapshots can be uploaded for occupancy-based relay automation</li>
-            </ul>
-
-            <!-- Dual-Core Architecture -->
-            <h2>Dual-Core Real-Time Design</h2>
-            <p><strong>Core 1 (Main Loop — Priority: Sensor + Protection):</strong></p>
-            <ul>
-              <li>Polls PZEM-004T sensor every 2 seconds</li>
-              <li>Evaluates 7 protection criteria with hysteresis</li>
-              <li>Updates TFT animated face, OLED, and rotating LCD screens</li>
-              <li>Plays audio alerts immediately when faults are detected</li>
-              <li>Protected access to shared `HttpPayload` struct via FreeRTOS semaphore</li>
-            </ul>
-            <p><strong>Core 0 (HTTP Task — Priority: Cloud Sync):</strong></p>
-            <ul>
-              <li>POSTs timestamped readings to cloud every 3 seconds</li>
-              <li>Polls relay command queue from backend (async control queue)</li>
-              <li>Implements 3-minute timeout handling for lost connections</li>
-              <li>Includes AES-128-CBC cookie caching to bypass InfinityFree protections</li>
-              <li>Non-blocking: firmware continues operating locally if cloud is unreachable</li>
-            </ul>
-
-            <h2>Web Backend & Dashboard</h2>
-            <p><strong>Backend Stack:</strong> PHP 7.2+, MariaDB 11.4 (InfinityFree) | <strong>Frontend:</strong> Vanilla JavaScript, Chart.js 4.4.1, no frameworks</p>
-            <p><strong>Four-Page Dashboard at <a href="https://pmo.infinityfree.me/" target="_blank" rel="noopener">pmo.infinityfree.me</a>:</strong></p>
-            <ul>
-              <li><strong>Dashboard:</strong> Relay control panel, AI analytics card (A–F rating + ₱ bill forecast + 3 recommendations), WiFi status, 1s refresh</li>
-              <li><strong>Monitor:</strong> 13 live metric cards with dynamic color thresholds (green → amber → red based on safety margins)</li>
-              <li><strong>History:</strong> 4 real-time Chart.js line charts (Voltage, Power Triangle, Current/PF dual-axis, Frequency) + 30-row scrollable sensor log</li>
-              <li><strong>NILM Page:</strong> Appliance registry with 30-second training modal, live detection with confidence scores, signature management</li>
-            </ul>
-            <p><strong>AI Analytics:</strong> Google Gemini 1.5 Flash generates daily energy reports at 6 AM &amp; 6 PM (Asia/Manila timezone). Aggregates daily stats (avg voltage, avg power, total energy, avg PF, cost projection) into letter grade (A–F), month-end ₱ bill estimate, and 3 household-specific recommendations. Results cached with 5.5-hour TTL to avoid redundant API calls.</p>
-            <p><strong>NILM (Non-Intrusive Load Monitoring):</strong> Users register 30-second power signatures for any appliance. Detection algorithm runs exhaustive subset search against live metrics with confidence scoring. Returns matched device names and subset composition — no additional sensors needed.</p>
-
-            <!-- Key Metrics & Impact -->
-            <h2>Key Metrics & Impact</h2>
-            <ul>
-              <li><strong>13 Electrical Metrics:</strong> Voltage, current, power, energy, frequency, power factor, apparent power (VA), reactive power (VAR), load type, cost/hour, cost/month, wasted power, safety margin</li>
-              <li><strong>7 Protection Criteria:</strong> Independent trip/restore thresholds with hysteresis — UV (195/205V), OV (250/240V), OC (15/13.5A), OP (3200/3000W), UF (57/58.5Hz), OF (63/61.5Hz), LPF (0.50/0.65)</li>
-              <li><strong>Real-Time Cloud Sync:</strong> 1 Hz web dashboard refresh with stale-connection detection (auto-lock after 5 missed updates)</li>
-              <li><strong>AI Recommendations:</strong> Twice-daily Gemini-powered energy tips personalized to household usage patterns, delivered via text and BMO-voiced audio</li>
-              <li><strong>Offline Resilience:</strong> Full protection and display functionality without internet; graceful cloud re-sync when connection restored</li>
-              <li><strong>NILM Algorithm:</strong> O(2^n) exhaustive subset search with confidence scoring for practical performance on &lt;10 appliances</li>
-            </ul>
-
-            <!-- Tech Stack section -->
-            <h2>Tech Stack & Key Dependencies</h2>
-            <p><strong>Firmware (C/C++ on Arduino Core):</strong> TFT_eSPI, PZEM004Tv30, LiquidCrystal_I2C, Adafruit_SSD1306, ArduinoJson, WiFiClientSecure, mbedtls/aes.h (AES-128-CBC), SPIFFS, ESP8266Audio (I2S playback), TJpg_Decoder</p>
-            <p><strong>Backend:</strong> PHP 7.2+, MariaDB 11.4, PDO/MySQLi, RESTful JSON API with CORS headers</p>
-            <p><strong>Frontend:</strong> HTML5, CSS3 (Grid/Flexbox), Vanilla JavaScript (minimal bundle size), Chart.js 4.4.1 for real-time visualization</p>
-            <p><strong>AI / ML:</strong> Google Gemini 1.5 Flash (energy recommendations), Edge Impulse (on-device CNN for ESP32-CAM occupancy detection), Google Cloud TTS (BMO personality voice)</p>
-            <p><strong>Infrastructure:</strong> InfinityFree free-tier HTTPS hosting, Git version control, AES-128-CBC cookie caching for bot protection, timezone-aware scheduling (Asia/Manila)</p>
-
-            <!-- Links -->
-            <div class="project-links">
-              <a href="https://github.com/joww-seph/pmo" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub →</a>
-              <a href="https://pmo.infinityfree.me/" class="btn btn-secondary" target="_blank" rel="noopener">Live Dashboard →</a>
-              <a href="../projects.html" class="btn btn-ghost">← Back to All Projects</a>
+            <h2>Features Overview</h2>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <div class="feature-card-title">Real-Time Energy Monitoring</div>
+                <div class="feature-card-desc">Tracks 13 electrical metrics including voltage, current, power, frequency, and power factor.</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-title">Automated Circuit Protection</div>
+                <div class="feature-card-desc">Detects 7 fault conditions and automatically trips the relay with safe restoration logic.</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-title">AI Energy Analytics</div>
+                <div class="feature-card-desc">Generates twice-daily reports with cost estimates, efficiency ratings, and recommendations.</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-title">Appliance Identification (NILM)</div>
+                <div class="feature-card-desc">Identifies active appliances using signature matching without additional sensors.</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-title">Web Dashboard Control</div>
+                <div class="feature-card-desc">Remote relay control, live charts, and historical logs with 1-second refresh rate.</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-title">Offline + Online Operation</div>
+                <div class="feature-card-desc">Fully functional locally with touchscreen UI even without internet connectivity.</div>
+              </div>
             </div>
 
+            <h2>Tech Stack</h2>
+            <h4>Hardware</h4>
+            <p>ESP32 NodeMCU, PZEM-004T v3.0, ILI9488 TFT, SSD1306 OLED, 16x2 LCD, Relay Module</p>
+            <h4>Firmware</h4>
+            <p>C/C++ (Arduino Core), FreeRTOS, TFT_eSPI, ArduinoJson, WiFiClientSecure</p>
+            <h4>Backend</h4>
+            <p>PHP 7.2+, MariaDB, REST API (InfinityFree hosting)</p>
+            <h4>Frontend</h4>
+            <p>HTML, CSS, Vanilla JavaScript, Chart.js</p>
+            <h4>AI / ML</h4>
+            <p>Google Gemini (analytics & TTS), Edge Impulse (occupancy detection)</p>
+
+            <h2>How It Works</h2>
+            <h4>Data Collection</h4>
+            <p>The ESP32 reads electrical data from the PZEM-004T sensor every 2 seconds and computes derived metrics such as cost, CO₂ output, and safety margin.</p>
+            <h4>Protection Logic</h4>
+            <p>The system evaluates 7 fault conditions (voltage, current, frequency, power factor, etc.). If thresholds are exceeded, the relay is automatically tripped and restored after a cooldown period.</p>
+            <h4>Dual-Core Processing</h4>
+            <p>One core handles real-time monitoring and protection, while the second core manages cloud communication and dashboard updates asynchronously.</p>
+            <h4>Cloud & Dashboard</h4>
+            <p>Data is sent to a PHP backend every 3 seconds. The web dashboard fetches updates every second to display live metrics and allow remote control.</p>
+            <h4>AI & Intelligence Layer</h4>
+            <p>Google Gemini processes aggregated data twice daily to generate energy reports, forecasts, and personalized recommendations.</p>
+
+            <h2>Future Improvements</h2>
+            <ul>
+              <li>Integrate predictive AI for anomaly detection and fault prevention</li>
+              <li>Upgrade NILM algorithm for higher accuracy and real-time classification</li>
+              <li>Implement mobile app version of the dashboard</li>
+              <li>Add cloud scalability using dedicated hosting or serverless architecture</li>
+              <li>Enhance UI/UX with smoother animations and improved data visualization</li>
+              <li>Expand hardware with modular sensor support for multi-circuit monitoring</li>
+            </ul>
+
+            <div class="project-links">
+              <a href="../projects.html" class="btn btn-ghost">← Back to All Projects</a>
+            </div>
+            
           </div>
         </div>
 
         <!-- ── Sidebar: Project Metadata ── -->
-        <div style="position:sticky;top:calc(var(--nav-height) + var(--space-8))" class="fade-in fade-in-delay-2">
+        <div class="project-sidebar fade-in fade-in-delay-2">
 
 
-          <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);margin-bottom:var(--space-6)">
+          <div class="project-sidebar-card">
             <h4 style="margin-bottom:var(--space-5)">Project Info</h4>
 
             <div class="project-meta-item" style="margin-bottom:var(--space-3)">
@@ -339,21 +143,21 @@
 
             <div class="project-meta-item" style="margin-bottom:var(--space-3)">
               <div class="project-meta-label">Status</div>
-              <div class="project-meta-value" style="color:var(--color-warning)">🔄 Active Development</div>
+              <div class="project-meta-value" style="color:var(--color-green)">Completed</div>
             </div>
 
             <div class="project-meta-item" style="margin-bottom:var(--space-3)">
               <div class="project-meta-label">Role</div>
-              <div class="project-meta-value">Lead Developer</div>
+              <div class="project-meta-value">Team Leader & Lead Developer</div>
             </div>
 
             <div class="project-meta-item">
-              <div class="project-meta-label">Stack</div>
-              <div class="project-meta-value" style="margin-top:var(--space-2)">ESP32, C/C++, PHP, phpMyAdmin, Gemini</div>
+              <div class="project-meta-label">Technologies</div>
+              <div class="project-meta-value">ESP32 · C/C++ · PHP · MariaDB · Chart.js · Gemini · Edge Impulse</div>
             </div>
           </div>
 
-          <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6)">
+          <div class="project-sidebar-card">
             <h4 style="margin-bottom:var(--space-4)">Links</h4>
             <a href="https://github.com/joww-seph/pmo" class="btn btn-primary" style="width:100%;margin-bottom:var(--space-3)" target="_blank" rel="noopener">View on GitHub →</a>
             <a href="https://pmo.infinityfree.me/" class="btn btn-ghost" style="width:100%" target="_blank" rel="noopener">Live Dashboard →</a>
@@ -374,20 +178,7 @@
   </section>
 
   <!-- ═══ FOOTER ════════════════════════════════════════════ -->
-  <footer class="r-footer">
-    <div class="container">
-      <div class="r-footer-inner">
-        <span class="r-footer-copy">&copy; <span id="footer-year"></span> Marc Joseph B. Sacopaso</span>
-        <div class="r-footer-links">
-          <a href="../projects.html" class="r-link">&#8592; All Projects</a>
-          <span class="r-link-sep">&#183;</span>
-          <a href="mailto:markjosephsacopaso@gmail.com" class="r-link">Email</a>
-          <span class="r-link-sep">&#183;</span>
-          <a href="https://github.com/joww-seph" class="r-link" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-root" data-footer="project"></div>
 
   <button class="scroll-top" aria-label="Scroll to top">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -396,6 +187,11 @@
   </button>
 
   <script src="../assets/js/main.js"></script>
-  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
-</body>
+  <!-- Decorative lines -->
+  <div class="deco-line" style="width:180px;height:5px;top:3%;left:6%;background:var(--color-accent);"></div>
+  <div class="deco-line" style="width:5px;height:150px;top:25%;right:4%;background:var(--color-blue);border-radius:var(--radius-full);"></div>
+  <div class="deco-line" style="width:110px;height:4px;bottom:18%;left:3%;background:var(--color-sapphire);"></div>
+  <div class="deco-line" style="width:5px;height:120px;top:45%;left:2%;background:var(--color-green);border-radius:var(--radius-full);"></div>
+  <div class="deco-line" style="width:160px;height:5px;bottom:35%;right:5%;background:var(--color-sapphire);"></div>
+  <div class="deco-line" style="width:110px;height:4px;top:70%;left:5%;background:var(--color-blue);"></div></body>
 </html>
