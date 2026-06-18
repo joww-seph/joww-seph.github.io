@@ -79,6 +79,8 @@ class Carousel {
       const img = document.createElement('img');
       img.src = src;
       img.alt = `Photo ${i + 1}`;
+      img.loading = 'lazy';
+      img.decoding = 'async';
 
       slide.appendChild(img);
       slide.addEventListener('click', () => this._openLightbox(i));
@@ -183,10 +185,16 @@ class Carousel {
 ────────────────────────────────────────── */
 async function buildGallery(config) {
   const { id, basePath, extensions, maxImages, autoDelay } = config;
-  const found = [];
 
-  for (let n = 1; n <= maxImages; n++) {
-    const src = await findImage(basePath, n, extensions);
+  /* Probe all slots in parallel instead of sequentially */
+  const probes = Array.from({ length: maxImages }, (_, i) =>
+    findImage(basePath, i + 1, extensions).then(src => ({ n: i + 1, src }))
+  );
+  const results = await Promise.all(probes);
+
+  /* Keep found images in order, stopping at the first gap */
+  const found = [];
+  for (const { src } of results) {
     if (!src) break;
     found.push(src);
   }

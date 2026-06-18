@@ -33,10 +33,15 @@ const NavManager = {
   async loadNav() {
     const inSubfolder = window.location.pathname.replace(/\\/g, '/').includes('/projects/');
     const base = inSubfolder ? '../assets/' : 'assets/';
+    const cacheKey = `nav-html-${base}`;
 
     try {
-      const res = await fetch(`${base}components/nav.html`);
-      const html = await res.text();
+      let html = sessionStorage.getItem(cacheKey);
+      if (!html) {
+        const res = await fetch(`${base}components/nav.html`);
+        html = await res.text();
+        sessionStorage.setItem(cacheKey, html);
+      }
       this.navRoot.innerHTML = html;
 
       if (inSubfolder) {
@@ -135,10 +140,15 @@ const FooterManager = {
   async loadFooter() {
     const inSubfolder = window.location.pathname.replace(/\\/g, '/').includes('/projects/');
     const base = inSubfolder ? '../assets/' : 'assets/';
+    const cacheKey = `footer-html-${base}`;
 
     try {
-      const res = await fetch(`${base}components/footer.html`);
-      const html = await res.text();
+      let html = sessionStorage.getItem(cacheKey);
+      if (!html) {
+        const res = await fetch(`${base}components/footer.html`);
+        html = await res.text();
+        sessionStorage.setItem(cacheKey, html);
+      }
       this.footerRoot.innerHTML = html;
 
       if (inSubfolder) {
@@ -261,6 +271,7 @@ const ProjectAssetManager = {
       const placeholder = document.querySelector('.project-detail-image-placeholder');
       if (!placeholder) return;
       img.style.cssText = 'width:100%;border-radius:var(--radius-lg);display:block;border:1px solid var(--color-border)';
+      img.decoding = 'async';
       img.className = 'fade-in visible';
       placeholder.replaceWith(img);
     });
@@ -273,6 +284,7 @@ const ProjectAssetManager = {
       if (!img) return;
       img.alt = slug;
       img.loading = 'lazy';
+      img.decoding = 'async';
       const placeholder = imgDiv.querySelector('.project-card-image-placeholder');
       if (placeholder) placeholder.replaceWith(img);
     });
@@ -281,6 +293,7 @@ const ProjectAssetManager = {
   probe(pathBase, extIndex, callback) {
     if (extIndex >= this.EXTENSIONS.length) { callback(null); return; }
     const img = new Image();
+    img.decoding = 'async';
     img.onload = () => callback(img);
     img.onerror = () => this.probe(pathBase, extIndex + 1, callback);
     img.src = `${pathBase}.${this.EXTENSIONS[extIndex]}`;
@@ -421,37 +434,41 @@ const DocGalleryManager = {
     this.loadImages(dir, grid, section);
   },
 
-  loadImages(dir, grid, section) {
-    for (let n = 1; n <= this.MAX_IMAGES; n++) {
-      this.probeImage(dir, n, 0, (img, num) => {
-        if (!img) return;
+  async loadImages(dir, grid, section) {
+    /* Probe all slots in parallel; within each slot race across extensions */
+    const probes = Array.from({ length: this.MAX_IMAGES }, (_, i) =>
+      this.probeImage(dir, i + 1)
+    );
+    const results = await Promise.all(probes);
 
-        img.dataset.n = num;
-        img.style.cssText = 'width:100%;height:220px;object-fit:cover;border-radius:8px;cursor:zoom-in;display:block;border:1px solid var(--color-border)';
-        img.addEventListener('click', () => this.openLightbox(img.src));
+    for (const { img, n } of results) {
+      if (!img) break;
 
-        const children = grid.querySelectorAll('img');
-        let inserted = false;
-        for (const el of children) {
-          if (parseInt(el.dataset.n) > num) {
-            grid.insertBefore(img, el);
-            inserted = true;
-            break;
-          }
-        }
-        if (!inserted) grid.appendChild(img);
+      img.dataset.n = n;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.style.cssText = 'width:100%;height:220px;object-fit:cover;border-radius:8px;cursor:zoom-in;display:block;border:1px solid var(--color-border)';
+      img.addEventListener('click', () => this.openLightbox(img.src));
+      grid.appendChild(img);
 
-        if (grid.children.length === 1) section.style.display = '';
-      });
+      if (grid.children.length === 1) section.style.display = '';
     }
   },
 
-  probeImage(dir, n, extIndex, callback) {
-    if (extIndex >= this.EXTENSIONS.length) { callback(null, n); return; }
-    const img = new Image();
-    img.onload = () => callback(img, n);
-    img.onerror = () => this.probeImage(dir, n, extIndex + 1, callback);
-    img.src = `${dir}${n}.${this.EXTENSIONS[extIndex]}`;
+  async probeImage(dir, n) {
+    /* Try all extensions in parallel, resolve with the first that loads */
+    const results = await Promise.all(
+      this.EXTENSIONS.map(ext =>
+        new Promise(resolve => {
+          const img = new Image();
+          img.decoding = 'async';
+          img.onload  = () => resolve({ img, n });
+          img.onerror = () => resolve(null);
+          img.src = `${dir}${n}.${ext}`;
+        })
+      )
+    );
+    return results.find(r => r) || { img: null, n };
   },
 
   initLightbox() {
